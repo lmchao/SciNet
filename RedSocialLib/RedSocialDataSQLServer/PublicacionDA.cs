@@ -37,18 +37,23 @@ namespace RedSocialDataSQLServer
             try
             {
                 string query = "SELECT * FROM Publicacion WHERE ";
-                if (filtro.GetType.ToString == "Grupo")
-                {
-                    query += "GrupoID = @GrupoID";
-                }
-                    
+   
                 List<PublicacionEntity> publicaciones = new List<PublicacionEntity>();
 
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
-                        comando.Parameters.Add("@PublicacionEmail", ()filtro.id;
+		        if (filtro.GetType().Name == "Grupo")
+		        {
+		            query += "GrupoID = @GrupoID";
+				comando.Parameters.Add("@GrupoID", (GrupoEntity)filtro.id);
+		        }
+		        if (filtro.GetType().Name == "Usuario")
+		        {
+		            query += "UsuarioID = @UsuarioID";
+			    comando.Parameters.Add("@UsuarioID", (UsuarioEntity)filtro.id);	
+		        } 
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {
