@@ -68,7 +68,7 @@ namespace RedSocialDataSQLServer
             }
             catch (Exception ex)
             {
-                throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
+                throw new ExcepcionDA("Se produjo un error al buscar la lista de publicaciones.", ex);
             }
         }
         #endregion Métodos Públicos
