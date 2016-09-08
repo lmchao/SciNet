@@ -36,7 +36,7 @@ namespace RedSocialDataSQLServer
         {
             try
             {
-                string query = "select * from publicacion where ";
+                string query = "SELECT * FROM Publicacion WHERE ";
                 if (filtro.GetType.ToString == "Grupo")
                 {
                     query += "GrupoID = @GrupoID";
@@ -49,7 +49,6 @@ namespace RedSocialDataSQLServer
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         comando.Parameters.Add("@PublicacionEmail", ()filtro.id;
-                        comando.Parameters["@PublicacionPassword"].Value = password.Trim();
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {
@@ -65,7 +64,7 @@ namespace RedSocialDataSQLServer
                     conexion.Close();
                 }
 
-                return publicacion;
+                return publicaciones;
             }
             catch (Exception ex)
             {
