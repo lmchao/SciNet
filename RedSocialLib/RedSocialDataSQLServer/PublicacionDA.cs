@@ -59,7 +59,7 @@ namespace RedSocialDataSQLServer
                         {
                             if (cursor.Read())
                             {
-                                publicacion = CrearPublicacion(cursor);
+                                publicaciones.Add(CrearPublicacion(cursor));
                             }
 
                             cursor.Close();
