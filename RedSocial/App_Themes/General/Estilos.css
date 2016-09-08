@@ -1,0 +1,123 @@
+﻿html, body
+{
+	height: 100%;
+}
+
+*
+{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, Verdana;
+	font-size: 11pt;
+}
+
+SELECT
+{
+    font-size: 9pt;
+}
+
+/* Cabecera */
+/****************/
+TABLE.Cabecera
+{
+	width: 100%;
+	background-color: #3b5998;
+}
+
+TD.RedSocialORTTitulo
+{
+	height: 83px;
+}
+
+SPAN.RedSocialORTTitulo
+{
+	color: White;
+	font-size: 26pt;
+	padding-left: 130px;
+}
+
+SPAN.EtiquetaCabecera
+{
+	color: White;
+	font-size: 9pt;
+}
+
+INPUT.BotonCabecera
+{
+	font-size: 9pt;
+	border: 1px solid #29447e;
+	background-color: #637bad;
+	color: White;
+	height: 21px;
+    width: 50px;
+}
+
+INPUT.CajaTextoCabecera
+{
+	padding: 2px;
+	border: 1px solid #1d2a5b;
+	font-size: 9pt;
+}
+
+
+/* Registración */
+/****************/
+DIV.FondoRegistracion
+{
+	background-color: #e7ebf2;
+	padding-bottom: 150px;
+}
+
+IMG.RedSocialORT
+{
+	padding-left: 90px;
+	padding-top: 150px;
+	padding-right: 20px;
+	float: left;
+}
+
+DIV.Registracion
+{
+	padding-top: 70px;
+}
+
+SPAN.Registracion
+{
+	color: Black;
+	font-size: 22pt;
+}
+
+INPUT.CajaTextoRegistracion, INPUT.CajaTextoRegistracionApellido
+{
+	padding: 2px;
+	border: 1px solid #bdc7d8;
+	font-size: 9pt;
+}
+
+INPUT.CajaTextoRegistracionApellido
+{
+	float: right;
+}
+
+SPAN.EtiquetaRegistracion
+{
+	color: Black;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+SPAN.SexoFemenino
+{
+	padding-right: 10px;
+	font-size: 9pt;
+}
+
+INPUT.BotonRegistracion
+{
+	font-size: 9pt;
+	border: 1px solid #29447e;
+	background-color: #637bad;
+	color: White;
+	height: 21px;
+    width: 80px;
+}

@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Autenticado.master.cs" Inherits="Autenticado" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head id="Head1" runat="server">
+    <meta charset="ISO-8859-1" />
+    <title>Red Social ORT</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="Cabecera" runat="server">
+            <asp:Table runat="server" ID="tblCabecera" CssClass="Cabecera">
+                <asp:TableRow>
+                    <asp:TableCell CssClass="RedSocialORTTitulo"><asp:Label runat="server" ID="lblRedSocialORT" Text="SciNet" CssClass="RedSocialORTTitulo"></asp:Label></asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder id="Cuerpo" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

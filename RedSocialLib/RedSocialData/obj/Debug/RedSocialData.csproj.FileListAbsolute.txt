@@ -1,0 +1,19 @@
+D:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social 2013 VS2008\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.dll
+D:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social 2013 VS2008\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.pdb
+D:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social 2013 VS2008\RedSocialLib\RedSocialData\obj\Debug\ResolveAssemblyReference.cache
+D:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social 2013 VS2008\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.dll
+D:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social 2013 VS2008\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.pdb
+C:\Alejandro\ORT\Desarrollos\Red Social ORT\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.dll
+C:\Alejandro\ORT\Desarrollos\Red Social ORT\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.pdb
+C:\Alejandro\ORT\Desarrollos\Red Social ORT\RedSocialLib\RedSocialData\obj\Debug\ResolveAssemblyReference.cache
+C:\Alejandro\ORT\Desarrollos\Red Social ORT\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.dll
+C:\Alejandro\ORT\Desarrollos\Red Social ORT\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.pdb
+F:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social ORT\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.dll
+F:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social ORT\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.pdb
+F:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social ORT\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.dll
+F:\Documentos\Alejandro\Desarrollo\wwwroot\Red Social ORT\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.pdb
+Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.dll
+Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.pdb
+Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.csprojResolveAssemblyReference.cache
+Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.dll
+Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.pdb

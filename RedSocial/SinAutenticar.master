@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SinAutenticar.master.cs" Inherits="SinAutenticar" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta charset="ISO-8859-1" />
+    <title>Red Social ORT</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder id="Cabecera" runat="server">
+            <asp:Table runat="server" ID="tblCabecera" CssClass="Cabecera">
+                <asp:TableRow>
+                    <asp:TableCell CssClass="RedSocialORTTitulo"><asp:Label runat="server" ID="lblRedSocialORT" Text="SciNet" CssClass="RedSocialORTTitulo"></asp:Label></asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Table runat="server" ID="tblLogin">
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <asp:Label runat="server" ID="lblEmail" Text="Correo Electrónico" CssClass="EtiquetaCabecera"></asp:Label>
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:Label runat="server" ID="lblPassword" Text="Contraseña" CssClass="EtiquetaCabecera"></asp:Label>
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                    &nbsp;
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <asp:TextBox ID="txtEmail" runat="server" Columns="20" MaxLength="100" CssClass="CajaTextoCabecera" />
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:TextBox ID="txtPassword" runat="server" Columns="20" TextMode="Password" MaxLength="10" CssClass="CajaTextoCabecera" />
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:Button ID="btnEntrar" runat="server" Text="Entrar" OnClick="btnEntrar_Click" CssClass="BotonCabecera" />
+                                </asp:TableCell>
+                            </asp:TableRow>
+                        </asp:Table>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder id="Cuerpo" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RedSocial", "RedSocial\", "{9971124E-F7FF-490A-87B4-D0FDC03DABA8}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{7719C5CF-5FFF-4993-BF8D-A984C2853BAC}|RedSocialBusiness.dll;{E14E311D-4E26-4410-BDF0-32FA75DE6B66}|RedSocialData.dll;{CEF204E3-2C11-4DB5-8CEB-BCA862FAD3E7}|RedSocialDataSQLServer.dll;{795B76ED-AF6B-4D88-AE15-F686C6447C22}|RedSocialEntity.dll;{9AA2AAB8-B07D-4DF5-9DA9-A588E5E2E267}|RedSocialComun.dll;{F520E209-B004-4AAC-ABF0-57DE5DED2980}|RedSocialWebUtil.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/RedSocial"
+		Debug.AspNetCompiler.PhysicalPath = "RedSocial\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\RedSocial\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/RedSocial"
+		Release.AspNetCompiler.PhysicalPath = "RedSocial\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\RedSocial\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "65348"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialEntity", "RedSocialLib\RedSocialEntity\RedSocialEntity.csproj", "{795B76ED-AF6B-4D88-AE15-F686C6447C22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialData", "RedSocialLib\RedSocialData\RedSocialData.csproj", "{E14E311D-4E26-4410-BDF0-32FA75DE6B66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialDataSQLServer", "RedSocialLib\RedSocialDataSQLServer\RedSocialDataSQLServer.csproj", "{CEF204E3-2C11-4DB5-8CEB-BCA862FAD3E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialBusiness", "RedSocialLib\RedSocialBusiness\RedSocialBusiness.csproj", "{7719C5CF-5FFF-4993-BF8D-A984C2853BAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialComun", "RedSocialComun\RedSocialComun.csproj", "{9AA2AAB8-B07D-4DF5-9DA9-A588E5E2E267}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialWebUtil", "RedSocialWebUtil\RedSocialWebUtil.csproj", "{F520E209-B004-4AAC-ABF0-57DE5DED2980}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9971124E-F7FF-490A-87B4-D0FDC03DABA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9971124E-F7FF-490A-87B4-D0FDC03DABA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9971124E-F7FF-490A-87B4-D0FDC03DABA8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9971124E-F7FF-490A-87B4-D0FDC03DABA8}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{795B76ED-AF6B-4D88-AE15-F686C6447C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{795B76ED-AF6B-4D88-AE15-F686C6447C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{795B76ED-AF6B-4D88-AE15-F686C6447C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{795B76ED-AF6B-4D88-AE15-F686C6447C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E14E311D-4E26-4410-BDF0-32FA75DE6B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E14E311D-4E26-4410-BDF0-32FA75DE6B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E14E311D-4E26-4410-BDF0-32FA75DE6B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E14E311D-4E26-4410-BDF0-32FA75DE6B66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF204E3-2C11-4DB5-8CEB-BCA862FAD3E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF204E3-2C11-4DB5-8CEB-BCA862FAD3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF204E3-2C11-4DB5-8CEB-BCA862FAD3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF204E3-2C11-4DB5-8CEB-BCA862FAD3E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7719C5CF-5FFF-4993-BF8D-A984C2853BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7719C5CF-5FFF-4993-BF8D-A984C2853BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7719C5CF-5FFF-4993-BF8D-A984C2853BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7719C5CF-5FFF-4993-BF8D-A984C2853BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA2AAB8-B07D-4DF5-9DA9-A588E5E2E267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA2AAB8-B07D-4DF5-9DA9-A588E5E2E267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA2AAB8-B07D-4DF5-9DA9-A588E5E2E267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA2AAB8-B07D-4DF5-9DA9-A588E5E2E267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F520E209-B004-4AAC-ABF0-57DE5DED2980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F520E209-B004-4AAC-ABF0-57DE5DED2980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F520E209-B004-4AAC-ABF0-57DE5DED2980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F520E209-B004-4AAC-ABF0-57DE5DED2980}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
