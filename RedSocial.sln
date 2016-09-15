@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RedSocial", "RedSocial\", "{9971124E-F7FF-490A-87B4-D0FDC03DABA8}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -20,6 +22,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RedSocial", "RedSocial\", "
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "65348"
+		SlnRelativePath = "RedSocial\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialEntity", "RedSocialLib\RedSocialEntity\RedSocialEntity.csproj", "{795B76ED-AF6B-4D88-AE15-F686C6447C22}"
