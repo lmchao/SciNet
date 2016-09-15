@@ -5,4 +5,5 @@
     <p><asp:FileUpload ID="fupCargarFotoPerfil" runat="server"  /><p>
     <asp:Button ID="btnCargarFotoPerfil" runat="server" Text="Cargar" OnClick="btnCargarFotoPerfil_Click" />
     </asp:Content>
+    
 
