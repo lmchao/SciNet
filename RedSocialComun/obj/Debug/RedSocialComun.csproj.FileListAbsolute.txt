@@ -11,3 +11,7 @@ Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialComun\bin\Debug\RedSocialCo
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialComun\bin\Debug\RedSocialComun.pdb
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialComun\obj\Debug\RedSocialComun.dll
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialComun\obj\Debug\RedSocialComun.pdb
+D:\Users\31091372\Source\Repos\SciNet\RedSocialComun\bin\Debug\RedSocialComun.dll
+D:\Users\31091372\Source\Repos\SciNet\RedSocialComun\bin\Debug\RedSocialComun.pdb
+D:\Users\31091372\Source\Repos\SciNet\RedSocialComun\obj\Debug\RedSocialComun.dll
+D:\Users\31091372\Source\Repos\SciNet\RedSocialComun\obj\Debug\RedSocialComun.pdb

@@ -34,6 +34,7 @@ namespace RedSocialDataSQLServer
         #region Métodos Públicos
         public List<PublicacionEntity> BuscarPublicaciones(object filtro)
         {
+            RedSocialEntity.
             try
             {
                 string query = "SELECT * FROM Publicacion WHERE ";
@@ -47,12 +48,12 @@ namespace RedSocialDataSQLServer
 		        if (filtro.GetType().Name == "Grupo")
 		        {
 		            query += "GrupoID = @GrupoID";
-				comando.Parameters.Add("@GrupoID", (GrupoEntity)filtro.id);
+				comando.Parameters.AddWithValue("@GrupoID", (GrupoEntity)filtro.id);
 		        }
 		        if (filtro.GetType().Name == "Usuario")
 		        {
 		            query += "UsuarioID = @UsuarioID";
-			    comando.Parameters.Add("@UsuarioID", (UsuarioEntity)filtro.id);	
+			    comando.Parameters.AddWithValue("@UsuarioID", (UsuarioEntity)filtro.id);	
 		        } 
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
