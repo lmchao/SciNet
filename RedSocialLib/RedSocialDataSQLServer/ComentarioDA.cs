@@ -18,38 +18,40 @@ namespace RedSocialDataSQLServer
         }
 
         #region Métodos Privados
-        private GrupoEntity CrearComentario(SqlDataReader cursor)
+        private ComentarioEntity CrearComentario(SqlDataReader cursor)
         {
-            GrupoEntity grupo = new GrupoEntity();
-            grupo.id = cursor.GetInt32(cursor.GetOrdinal("GrupoID"));
-            grupo.nombre = cursor.GetString(cursor.GetOrdinal("GrupoNombre"));
-            grupo.descripcion = cursor.GetString(cursor.GetOrdinal("GrupoDescripcion"));
-            grupo.fechaCreacion = cursor.GetDateTime(cursor.GetOrdinal("GrupoFechaCreacion"));
-            grupo.fechaActualizacion = cursor.GetDateTime(cursor.GetOrdinal("GrupoFechaActualizacion"));
+            ComentarioEntity comentario = new ComentarioEntity();
+            comentario.id = cursor.GetInt32(cursor.GetOrdinal("ComentarioID"));
+            comentario.publicacionID = cursor.GetInt32(cursor.GetOrdinal("PublicacionID"));
+            comentario.usuarioID = cursor.GetInt32(cursor.GetOrdinal("UsuarioID"));
+            comentario.texto = cursor.GetString(cursor.GetOrdinal("ComentarioTexto"));
+            comentario.calificacion = cursor.GetInt32(cursor.GetOrdinal("ComentarioCalificacion"));
+            comentario.fechaActualizacion = cursor.GetDateTime(cursor.GetOrdinal("ComentarioFechaActualizacion"));
 
 
-            return grupo;
+            return comentario;
         }
         #endregion Métodos Privados
 
         #region Métodos Públicos
-        public void Insertar(GrupoEntity grupo)
+        public void Insertar(ComentarioEntity comentario)
         {
             try
             {
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("GrupoInsert", conexion))
+                    using (SqlCommand comando = new SqlCommand("ComentarioInsert", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@GrupoNombre"].Value = grupo.nombre.Trim();
-                        comando.Parameters["@GrupoDescripcion"].Value = grupo.descripcion.Trim();
-                        comando.Parameters["@GrupoFechaCreacion"].Value = grupo.fechaCreacion;
-                        comando.Parameters["@GrupoFechaActualizacion"].Value = grupo.fechaActualizacion;
+                        comando.Parameters["@PublicacionID"].Value = comentario.publicacionID;
+                        comando.Parameters["@UsuarioID"].Value = comentario.usuarioID;
+                        comando.Parameters["@ComentarioTexto"].Value = comentario.texto.Trim();
+                        comando.Parameters["@ComentarioCalificacion"].Value = comentario.calificacion;
+                        comando.Parameters["@ComentarioFechaActualizacion"].Value = comentario.fechaActualizacion;
                         comando.ExecuteNonQuery();
-                        grupo.id = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);
+                        comentario.id = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);
                     }
 
                     conexion.Close();
@@ -57,7 +59,7 @@ namespace RedSocialDataSQLServer
             }
             catch (Exception ex)
             {
-                throw new ExcepcionDA("Se produjo un error al insertar el grupo.", ex);
+                throw new ExcepcionDA("Se produjo un error al insertar el comentario.", ex);
             }
         }
 

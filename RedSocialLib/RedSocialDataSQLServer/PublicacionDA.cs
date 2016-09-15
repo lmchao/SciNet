@@ -32,6 +32,36 @@ namespace RedSocialDataSQLServer
         #endregion Métodos Privados
 
         #region Métodos Públicos
+
+        public void Insertar(PublicacionEntity publicacion)
+        {
+            try
+            {
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("PublicacionInsert", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@UsuarioID"].Value = publicacion.usuarioID;
+                        comando.Parameters["@GrupoID"].Value = publicacion.grupoID;
+                        comando.Parameters["@Descripcion"].Value = publicacion.descripcion.Trim();                        
+                        comando.Parameters["@PublicacionActualizacion"].Value = publicacion.actualizacion;
+                        comando.Parameters["@ComentarioCalificacion"].Value = publicacion.calificacion;
+                        comando.Parameters["@PublicacionImagen"].Value = publicacion.imagen;
+                        comando.ExecuteNonQuery();
+                        publicacion.id = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);
+                    }
+
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al insertar la publicacion.", ex);
+            }
+        }
         public List<PublicacionEntity> BuscarPublicaciones(object filtro)
         {
             RedSocialEntity.
