@@ -38,3 +38,6 @@ Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialDataSQLServer\
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialDataSQLServer\obj\Debug\RedSocialDataSQLServer.pdb
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialDataSQLServer\bin\Debug\RedSocialDataSQLServer.dll.CodeAnalysisLog.xml
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialDataSQLServer\bin\Debug\RedSocialDataSQLServer.dll.lastcodeanalysissucceeded
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialDataSQLServer\obj\Debug\RedSocialDataSQLServer.csprojResolveAssemblyReference.cache
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialDataSQLServer\obj\Debug\RedSocialDataSQLServer.dll
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialDataSQLServer\obj\Debug\RedSocialDataSQLServer.pdb

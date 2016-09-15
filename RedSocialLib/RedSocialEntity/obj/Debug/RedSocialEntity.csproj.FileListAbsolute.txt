@@ -24,3 +24,10 @@ Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialEntity\bin\Deb
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialEntity\obj\Debug\RedSocialEntity.csprojResolveAssemblyReference.cache
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialEntity\obj\Debug\RedSocialEntity.dll
 Z:\T4\Red_Social_2013_VS2010\Red Social ORT\RedSocialLib\RedSocialEntity\obj\Debug\RedSocialEntity.pdb
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialEntity\bin\Debug\RedSocialEntity.dll
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialEntity\bin\Debug\RedSocialEntity.pdb
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialEntity\bin\Debug\RedSocialComun.dll
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialEntity\bin\Debug\RedSocialComun.pdb
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialEntity\obj\Debug\RedSocialEntity.csprojResolveAssemblyReference.cache
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialEntity\obj\Debug\RedSocialEntity.dll
+D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialEntity\obj\Debug\RedSocialEntity.pdb
