@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComentarioEntity.cs" />
+    <Compile Include="GrupoEntity.cs" />
+    <Compile Include="GrupoUsuarioEntity.cs" />
     <Compile Include="PublicacionEntity.cs" />
     <Compile Include="EmailExcepcion.cs" />
     <Compile Include="FechaNacimientoExcepcion.cs" />
