@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RedSocial", "RedSocial\", "{9971124E-F7FF-490A-87B4-D0FDC03DABA8}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -36,6 +36,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialComun", "RedSocialComun\RedSocialComun.csproj", "{9AA2AAB8-B07D-4DF5-9DA9-A588E5E2E267}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialWebUtil", "RedSocialWebUtil\RedSocialWebUtil.csproj", "{F520E209-B004-4AAC-ABF0-57DE5DED2980}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{840B44C3-1822-4C24-9C9D-99A5A983EB42}"
+	ProjectSection(SolutionItems) = preProject
+		Base\export\RedSocialORT22AGrupo02.sql = Base\export\RedSocialORT22AGrupo02.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
