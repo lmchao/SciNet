@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MensajeEntity.cs" />
     <Compile Include="ComentarioEntity.cs" />
     <Compile Include="GrupoEntity.cs" />
     <Compile Include="GrupoUsuarioEntity.cs" />
