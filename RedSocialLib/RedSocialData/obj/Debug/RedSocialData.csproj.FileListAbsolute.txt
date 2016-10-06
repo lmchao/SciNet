@@ -21,3 +21,8 @@ D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialData\bin\Debug\RedSo
 D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.pdb
 D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.dll
 D:\Users\31091372\Source\Repos\SciNet\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.pdb
+C:\Users\lchao\Source\Repos\SciNet\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.dll
+C:\Users\lchao\Source\Repos\SciNet\RedSocialLib\RedSocialData\bin\Debug\RedSocialData.pdb
+C:\Users\lchao\Source\Repos\SciNet\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.csprojResolveAssemblyReference.cache
+C:\Users\lchao\Source\Repos\SciNet\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.dll
+C:\Users\lchao\Source\Repos\SciNet\RedSocialLib\RedSocialData\obj\Debug\RedSocialData.pdb

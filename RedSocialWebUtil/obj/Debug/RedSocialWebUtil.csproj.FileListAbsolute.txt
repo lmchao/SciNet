@@ -34,3 +34,12 @@ D:\Users\31091372\Source\Repos\SciNet\RedSocialWebUtil\bin\Debug\RedSocialEntity
 D:\Users\31091372\Source\Repos\SciNet\RedSocialWebUtil\obj\Debug\RedSocialWebUtil.csprojResolveAssemblyReference.cache
 D:\Users\31091372\Source\Repos\SciNet\RedSocialWebUtil\obj\Debug\RedSocialWebUtil.dll
 D:\Users\31091372\Source\Repos\SciNet\RedSocialWebUtil\obj\Debug\RedSocialWebUtil.pdb
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\bin\Debug\RedSocialWebUtil.dll
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\bin\Debug\RedSocialWebUtil.pdb
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\bin\Debug\RedSocialComun.dll
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\bin\Debug\RedSocialEntity.dll
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\bin\Debug\RedSocialComun.pdb
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\bin\Debug\RedSocialEntity.pdb
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\obj\Debug\RedSocialWebUtil.csprojResolveAssemblyReference.cache
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\obj\Debug\RedSocialWebUtil.dll
+C:\Users\lchao\Source\Repos\SciNet\RedSocialWebUtil\obj\Debug\RedSocialWebUtil.pdb

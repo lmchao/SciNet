@@ -33,7 +33,7 @@ namespace RedSocialDataSQLServer
 
         #region Métodos Públicos
 
-        public void Insertar(PublicacionEntity publicacion)
+        public bool Insertar(PublicacionEntity publicacion)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace RedSocialDataSQLServer
 
                         comando.Parameters["@UsuarioID"].Value = publicacion.usuarioID;
                         comando.Parameters["@GrupoID"].Value = publicacion.grupoID;
-                        comando.Parameters["@Descripcion"].Value = publicacion.descripcion.Trim();                        
+                        comando.Parameters["@Descripcion"].Value = publicacion.descripcion.Trim();
                         comando.Parameters["@PublicacionActualizacion"].Value = publicacion.actualizacion;
                         comando.Parameters["@ComentarioCalificacion"].Value = publicacion.calificacion;
                         comando.Parameters["@PublicacionImagen"].Value = publicacion.imagen;
@@ -55,6 +55,7 @@ namespace RedSocialDataSQLServer
                     }
 
                     conexion.Close();
+                    return true;
                 }
             }
             catch (Exception ex)
