@@ -107,6 +107,44 @@ namespace RedSocialDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al buscar la lista de publicaciones.", ex);
             }
         }
+
+        public void Actualizar(int id, byte[] archivoFoto)
+        {
+            try
+            {
+                //FileInfo infoArchivo = new FileInfo(nombreArchivo);
+
+                //string rutaFotos = ConfigurationManager.AppSettings["RutaFotos"];
+                //string nuevoNombreArchivo = id.ToString() + infoArchivo.Extension;
+
+                //using (FileStream archivo = File.Create(rutaFotos + nuevoNombreArchivo))
+                //{
+                //    archivo.Write(archivoFoto, 0, archivoFoto.Length);
+                //    archivo.Close();
+                //}
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("PublicacionActualizarFoto", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@PublicacionID"].Value = id;                        
+                        comando.Parameters["@PublicacionImagen"].Value = archivoFoto;
+                        comando.ExecuteNonQuery();
+                    }
+
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al actualizar la imagen.", ex);
+            }
+        }
         #endregion Métodos Públicos
+
+
     }
 }
