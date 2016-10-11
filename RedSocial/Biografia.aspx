@@ -1,14 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Autenticado.master" AutoEventWireup="true" CodeFile="Biografia.aspx.cs" Inherits="Biografia" %>
 
 <asp:Content ID="cphCuerpo" ContentPlaceHolderID="Cuerpo" Runat="Server">
-    <p><asp:Image ID="imgFotoPerfil" runat="server" OnLoad="CargarFotoPerfil"/></p>
-    <p><asp:FileUpload ID="fupCargarFotoPerfil" runat="server"  /><p>
-    <asp:Button ID="btnCargarFotoPerfil" runat="server" Text="Cargar" OnClick="btnCargarFotoPerfil_Click" />
+   <div id="main">
+   <div id="left">Left</div>
+   <div id="content">Center</div>
+   <div id="right">Right</div>
+   <div style="clear:both"></div>
+   <div id="footer">Footer</div>
+</div> 
 
-        <div>
+
+ 
+
     
-      <asp:Repeater ID="rptPublicaciones" runat="server" 
-          DataSourceID="SqlDataSource_Publicaciones">
+      <asp:Repeater ID="rptPublicaciones" runat="server" >
+          <%--DataSourceID="SqlDataSource_Publicaciones">--%>
           <HeaderTemplate>
               <table>
               <tr>
@@ -47,7 +53,7 @@
               </table>
           </FooterTemplate>
       </asp:Repeater>
-
+<%--
       <asp:SqlDataSource 
           ConnectionString=
               "<%$ ConnectionStrings:ConexionRedSocial %>"
@@ -61,6 +67,7 @@
       ,[PublicacionImagen]
   FROM [RedSocialORT22AGrupo02].[dbo].[Publicacion]">
       </asp:SqlDataSource>
+ --%>
     </div>
     </asp:Content>
     

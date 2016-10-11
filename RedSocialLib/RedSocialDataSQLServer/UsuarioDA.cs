@@ -21,7 +21,7 @@ namespace RedSocialDataSQLServer
         private UsuarioEntity CrearUsuario(SqlDataReader cursor)
         {
             UsuarioEntity usuario = new UsuarioEntity();
-            usuario.Id = cursor.GetInt32(cursor.GetOrdinal("UsuarioID"));
+            usuario.id = cursor.GetInt32(cursor.GetOrdinal("UsuarioID"));
             usuario.Nombre = cursor.GetString(cursor.GetOrdinal("UsuarioNombre"));
             usuario.Apellido = cursor.GetString(cursor.GetOrdinal("UsuarioApellido"));
             usuario.Email = cursor.GetString(cursor.GetOrdinal("UsuarioEmail"));
@@ -66,7 +66,7 @@ namespace RedSocialDataSQLServer
                         comando.Parameters["@UsuarioSexo"].Value = usuario.Sexo;
                         comando.Parameters["@UsuarioFechaRegistracion"].Value = usuario.FechaRegistracion;
                         comando.ExecuteNonQuery();
-                        usuario.Id = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);
+                        usuario.id = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);
                     }
                     
                     conexion.Close();
@@ -86,13 +86,13 @@ namespace RedSocialDataSQLServer
                 
                 string rutaFotos = ConfigurationManager.AppSettings["RutaFotos"];
                 string nuevoNombreArchivo = id.ToString() + infoArchivo.Extension;
-
+                /*
                 using (FileStream archivo = File.Create(rutaFotos + nuevoNombreArchivo))
                 {
                     archivo.Write(archivoFoto, 0, archivoFoto.Length);
                     archivo.Close();
                 }
-                
+                */
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
                     using (SqlCommand comando = new SqlCommand("UsuarioActualizarFoto", conexion))

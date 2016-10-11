@@ -10,7 +10,7 @@ namespace RedSocialEntity
     {
         public UsuarioEntity()
         {
-            Id = 0;
+            id = 0;
             Nombre = "";
             Apellido = "";
             Email = "";
@@ -24,7 +24,7 @@ namespace RedSocialEntity
 
         }
 
-        public int Id { get; set; }
+        public int id { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Email { get; set; }

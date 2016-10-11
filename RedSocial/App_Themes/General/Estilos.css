@@ -121,3 +121,33 @@ INPUT.BotonRegistracion
 	height: 21px;
     width: 80px;
 }
+
+*{margin:0px;}
+ #main
+  {
+
+   }      
+ #left
+ {
+    float:left;
+
+    width:20%;
+  }
+ #right
+ {
+    float:right;
+    width:20%;
+  }
+#content
+ {
+    float:left;
+    width:59%;
+    border-left:1px solid black;
+    border-right:1px solid black;
+  }
+#footer
+{
+ padding:5px;
+ background:black;
+ color:white;
+}

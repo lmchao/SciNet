@@ -12,14 +12,27 @@
     <div>
         <asp:ContentPlaceHolder id="Cabecera" runat="server">
             <asp:Table runat="server" ID="tblCabecera" CssClass="Cabecera">
+                
                 <asp:TableRow>
                     <asp:TableCell CssClass="RedSocialORTTitulo"><asp:Label runat="server" ID="lblRedSocialORT" Text="SciNet" CssClass="RedSocialORTTitulo"></asp:Label></asp:TableCell>
+                    <asp:TableCell CssClass="EtiquetaCabecera">
+                        <a href="actualizardatos.aspx">
+                        <asp:Label runat="server" ID="usuario" CssClass="EtiquetaCabecera" ></asp:Label>
+                        </a>
+                    </asp:TableCell>
+                    <asp:TableCell CssClass="EtiquetaCabecera">
+                        <asp:Image ID="imgFotoPerfil" runat="server" OnLoad="CargarFotoPerfil" Width="150" Height="150"/>
+                    </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
         </asp:ContentPlaceHolder>
         <asp:ContentPlaceHolder id="Cuerpo" runat="server">
         
         </asp:ContentPlaceHolder>
+    </div>
+        
+    <div>
+
     </div>
     </form>
 </body>

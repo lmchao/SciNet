@@ -19,14 +19,7 @@ namespace RedSocialDataSQLServer
         #region Métodos Privados
         private PublicacionEntity CrearPublicacion(SqlDataReader cursor)
         {
-            PublicacionEntity publicacion = new PublicacionEntity();
-            publicacion.id = (int)cursor["PublicacionID"];
-            publicacion.grupoID = (int)cursor["GrupoID"];
-            publicacion.usuarioID = (int)cursor["UsuarioID"];
-            publicacion.descripcion = (string)cursor["Descripcion"];
-            publicacion.actualizacion = (DateTime)cursor["PublicacionActualizacion"];
-            publicacion.calificacion = (int)cursor["PublicacionCalificacion"];
-            publicacion.imagen = (byte[])cursor["PublicacionImagen"];
+            PublicacionEntity publicacion = null;
             return publicacion;
         }
         #endregion Métodos Privados
@@ -63,34 +56,42 @@ namespace RedSocialDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al insertar la publicacion.", ex);
             }
         }
-        public List<PublicacionEntity> BuscarPublicaciones(object filtro)
+        public static List<PublicacionEntity> BuscarPublicaciones(object filtro)
         {
             try
             {
                 string query = "SELECT * FROM Publicacion WHERE ";
-   
+                string parameterID = "";
                 List<PublicacionEntity> publicaciones = new List<PublicacionEntity>();
+                if (filtro.GetType().Name == "GrupoEntity")
+                {
+                    parameterID = ((GrupoEntity)filtro).id.ToString();
+                    query += "GrupoID = @Parameter_ID";
+                }
+                if (filtro.GetType().Name == "UsuarioEntity")
+                {
+                    parameterID = ((UsuarioEntity)filtro).id.ToString();
+                    query += "UsuarioID = @Parameter_ID";
+                }
 
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
-		        if (filtro.GetType().Name == "Grupo")
-		        {
-		            query += "GrupoID = @GrupoID";
-				    comando.Parameters.AddWithValue("@GrupoID", ((GrupoEntity)filtro).id);
-		        }
-		        if (filtro.GetType().Name == "Usuario")
-		        {
-		            query += "UsuarioID = @UsuarioID";
-			        comando.Parameters.AddWithValue("@UsuarioID", ((UsuarioEntity)filtro).Id);	
-		        } 
-
+                        comando.Parameters.AddWithValue("@Parameter_ID", parameterID);
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {
-                            if (cursor.Read())
+                            while (cursor != null && cursor.Read())
                             {
-                                publicaciones.Add(CrearPublicacion(cursor));
+                                PublicacionEntity publicacion = new PublicacionEntity();
+                                publicacion.id = (int)cursor["PublicacionID"];
+                                if (cursor["GrupoID"] != DBNull.Value) publicacion.grupoID = (int)cursor["GrupoID"];
+                                publicacion.usuarioID = (int)cursor["UsuarioID"];
+                                publicacion.descripcion = (string)cursor["Descripcion"];
+                                publicacion.actualizacion = (DateTime)cursor["PublicacionActualizacion"];
+                                publicacion.calificacion = (int)cursor["PublicacionCalificacion"];
+                                if (cursor["PublicacionImagen"] != DBNull.Value) publicacion.imagen = (byte[])cursor["PublicacionImagen"];
+                                publicaciones.Add(publicacion);
                             }
 
                             cursor.Close();

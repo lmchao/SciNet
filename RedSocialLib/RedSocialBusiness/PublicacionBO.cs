@@ -59,7 +59,7 @@ namespace RedSocialBusiness
                 throw new ExcepcionBO("No se pudo actualizar la imagen de la publicación.", ex);
             }
         }
-
+        /*
         public List<PublicacionEntity> Listar(object filtro)
         {
             try
@@ -72,5 +72,6 @@ namespace RedSocialBusiness
                 throw new ExcepcionBO("No se pudo realizar la registración del publicacion.", ex);
             }
         }
+        */
     }
 }

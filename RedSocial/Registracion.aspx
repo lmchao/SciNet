@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SinAutenticar.master" AutoEventWireup="true" CodeFile="Registracion.aspx.cs" Inherits="Registracion" %>
+﻿<%@ Page Title="SciNet" Language="C#" MasterPageFile="~/SinAutenticar.master" AutoEventWireup="true" CodeFile="Registracion.aspx.cs" Inherits="Registracion" %>
 
 <asp:Content ID="cphContenido" ContentPlaceHolderID="Cuerpo" Runat="Server">
     <asp:Panel runat="server" ID="panInicio" CssClass="FondoRegistracion">
