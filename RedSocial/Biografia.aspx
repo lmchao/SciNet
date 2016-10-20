@@ -9,10 +9,10 @@
    <div id="footer">Footer</div>
 </div> 
 
-
- 
-
-    
+      <a href="AltaGrupo.aspx">
+      <asp:Label runat="server" ID="nuevoGrupo" text="Nuevo Grupo" CssClass="EtiquetaNuevoGrupo" ></asp:Label>
+      </a>
+     
       <asp:Repeater ID="rptPublicaciones" runat="server" >
           <%--DataSourceID="SqlDataSource_Publicaciones">--%>
           <HeaderTemplate>
@@ -45,7 +45,7 @@
               <td >
                  <asp:Label runat="server" ID="Label4" 
                      text='<%# Eval("UsuarioID") %>' />
-              </td>
+              </td>          
           </tr>
           </AlternatingItemTemplate>
 

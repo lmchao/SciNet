@@ -6,7 +6,7 @@ using RedSocialComun;
 
 namespace RedSocialEntity
 {
-    class GrupoUsuarioEntity
+    public class GrupoUsuarioEntity
     {
         public GrupoUsuarioEntity()
         {

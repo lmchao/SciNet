@@ -22,6 +22,5 @@ public partial class Biografia : System.Web.UI.Page
             //rptPublicaciones.DataSource =
         }
     }
-
-
+        
 }
