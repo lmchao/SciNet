@@ -61,6 +61,7 @@ namespace RedSocialDataSQLServer
             }
         }
 
+
         //public void Actualizar(int id, string nombreArchivo, byte[] archivoFoto)
         //{
         //    try

@@ -52,6 +52,8 @@ namespace RedSocialDataSQLServer
                         grupo.id = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);
                     }
 
+
+
                     conexion.Close();
                 }
             }

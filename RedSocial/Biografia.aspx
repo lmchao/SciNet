@@ -36,7 +36,7 @@
           </tr>
           </ItemTemplate>
 
-          <AlternatingItemTemplate>
+<%--          <AlternatingItemTemplate>
           <tr>
               <td >
                 <asp:Label runat="server" ID="Label3" 
@@ -47,7 +47,7 @@
                      text='<%# Eval("UsuarioID") %>' />
               </td>          
           </tr>
-          </AlternatingItemTemplate>
+          </AlternatingItemTemplate>--%>
 
           <FooterTemplate>
               </table>

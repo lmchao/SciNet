@@ -12,6 +12,7 @@ using RedSocialWebUtil;
 public partial class Registracion : System.Web.UI.Page
 {
     private GrupoBO boGrupo = new GrupoBO();
+    private GrupoUsuarioBO boGrupoUsuario = new GrupoUsuarioBO();
     
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -34,12 +35,14 @@ public partial class Registracion : System.Web.UI.Page
         try
         {
             GrupoEntity grupo = new GrupoEntity();
-            grupo.nombre = txtNombre.Text;
-            
+            grupo.nombre = txtNombre.Text;            
             grupo.descripcion = txtDescripcion.Text;
-            //grupo.fechaCreacion = DateTime.Today;
-            //grupo.fechaActualizacion = DateTime.Today;
             boGrupo.Registrar(grupo);
+
+            GrupoUsuarioEntity grupoUsuario = new GrupoUsuarioEntity();
+            grupoUsuario.grupoID = grupo.id;
+            grupoUsuario.usuarioID = SessionHelper.UsuarioAutenticado.id;
+            boGrupoUsuario.Registrar(grupoUsuario);
 
             //SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(txtEmail.Text, txtPassword.Text));
             //System.Web.Security.FormsAuthentication.RedirectFromLoginPage(SessionHelper.UsuarioAutenticado.Email, false);

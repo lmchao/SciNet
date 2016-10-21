@@ -63,6 +63,58 @@ namespace RedSocialDataSQLServer
             }
         }
 
+        public static List<ComentarioEntity> BuscarComentarios(object filtro)
+        {
+            try
+            {
+                string query = "SELECT * FROM Comentario WHERE ";
+                string parameterID = "";
+                List<ComentarioEntity> comentarios = new List<ComentarioEntity>();
+                if (filtro.GetType().Name == "PublicacionEntity")
+                {
+                    parameterID = ((GrupoEntity)filtro).id.ToString();
+                    query += "PublicacionID = @Parameter_ID";
+                }
+                if (filtro.GetType().Name == "UsuarioEntity")
+                {
+                    parameterID = ((UsuarioEntity)filtro).id.ToString();
+                    query += "UsuarioID = @Parameter_ID";
+                }
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Parameter_ID", parameterID);
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            while (cursor != null && cursor.Read())
+                            {
+                                ComentarioEntity comentario = new ComentarioEntity();
+                                comentario.id = (int)cursor["ComentarioID"];
+                                comentario.publicacionID = (int)cursor["PublicacionID"];
+                                comentario.usuarioID = (int)cursor["UsuarioID"];
+                                comentario.texto = (string)cursor["ComentarioTexto"];
+                                comentario.calificacion = (int)cursor["ComentarioCalificacion"];
+                                comentario.fechaActualizacion = (DateTime)cursor["ComentarioFechaActualizacion"];
+                                                               
+                                comentarios.Add(comentario);
+                            }
+
+                            cursor.Close();
+                        }
+                    }
+
+                    conexion.Close();
+                }
+
+                return comentarios;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar la lista de publicaciones.", ex);
+            }
+        }
         //public void Actualizar(int id, string nombreArchivo, byte[] archivoFoto)
         //{
         //    try
