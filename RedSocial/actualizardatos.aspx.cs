@@ -38,9 +38,14 @@ public partial class actualizardatos : System.Web.UI.Page
                 ddlAnio.SelectedValue = usuario.FechaNacimiento.Year.ToString();
                 ddlMes.SelectedValue = usuario.FechaNacimiento.Month.ToString();
                 ddlDia.SelectedValue = usuario.FechaNacimiento.Day.ToString();
-
-                //usuario.Sexo = (ControlsHelper.RadioSeleccionado("Debe seleccionar el sexo.", radMujer, radHombre) == radMujer ? 'F' : 'M');
-
+                if (usuario.Sexo == 'F')
+                {
+                    radMujer.Checked = true;
+                }
+                else
+                {
+                    radHombre.Checked = true;
+                }
             }
 
             
@@ -73,7 +78,7 @@ public partial class actualizardatos : System.Web.UI.Page
             imgFotoPerfil.ImageUrl = "data:image/png;base64," + base64String;
         }
     }
-    protected void btnRegistrate_Click(object sender, EventArgs e)
+    protected void btnGuardar_Click(object sender, EventArgs e)
     {
         try
         {

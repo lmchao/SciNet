@@ -15,6 +15,7 @@ public partial class Registracion : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (SessionHelper.UsuarioAutenticado != null) SessionHelper.LogOut();
         if (!Page.IsPostBack)
         {
             for (int i = 1; i < 32; i++)

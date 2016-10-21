@@ -21,6 +21,11 @@
                         </a>
                     </asp:TableCell>
                     <asp:TableCell CssClass="EtiquetaCabecera">
+                        <a href="registracion.aspx">
+                        <asp:Label runat="server" ID="Label2" Text="Salir" CssClass="EtiquetaCabecera" ></asp:Label>
+                        </a>
+                    </asp:TableCell>
+                    <asp:TableCell CssClass="EtiquetaCabecera">
                         <asp:Image ID="imgFotoPerfil" runat="server" OnLoad="CargarFotoPerfil" Width="150" Height="150"/>
                     </asp:TableCell>
                 </asp:TableRow>

@@ -12,7 +12,13 @@ public partial class Autenticado : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        usuario.Text = SessionHelper.UsuarioAutenticado.Nombre + " " + SessionHelper.UsuarioAutenticado.Apellido;
+
+        if (SessionHelper.UsuarioAutenticado != null) { 
+            usuario.Text = SessionHelper.UsuarioAutenticado.Nombre + " " + SessionHelper.UsuarioAutenticado.Apellido;
+        } else {
+            System.Web.Security.FormsAuthentication.RedirectToLoginPage();
+        }
+        
     }
     protected void CargarFotoPerfil(object sender, EventArgs e)
     {

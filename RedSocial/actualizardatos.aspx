@@ -95,7 +95,7 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Button ID="btnRegistrate" runat="server" Text="Registrate" OnClick="btnRegistrate_Click" CssClass="BotonRegistracion" />
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" CssClass="BotonRegistracion" />
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>

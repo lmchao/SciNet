@@ -33,11 +33,9 @@ namespace RedSocialDataSQLServer
                 usuario.Foto = cursor.GetString(cursor.GetOrdinal("UsuarioFoto"));
 
             if (!cursor.IsDBNull(cursor.GetOrdinal("UsuarioFotoActual")))
-                //usuario.FotoActual = (byte[]) cursor.GetString(cursor.GetOrdinal("UsuarioFotoActual")).;
                 usuario.FotoActual = (byte[])cursor["UsuarioFotoActual"];
 
-
-                usuario.FechaRegistracion = cursor.GetDateTime(cursor.GetOrdinal("UsuarioFechaRegistracion"));
+            usuario.FechaRegistracion = cursor.GetDateTime(cursor.GetOrdinal("UsuarioFechaRegistracion"));
 
             if (!cursor.IsDBNull(cursor.GetOrdinal("UsuarioFechaActualizacion")))
                 usuario.FechaActualizacion = cursor.GetDateTime(cursor.GetOrdinal("UsuarioFechaActualizacion"));
@@ -138,6 +136,7 @@ namespace RedSocialDataSQLServer
                         comando.Parameters.AddWithValue("@FECHANACIMIENTO", usuario.FechaNacimiento);
                         comando.Parameters.AddWithValue("@SEXO", usuario.Sexo);
                         comando.Parameters.AddWithValue("@FOTO", usuario.Foto);
+                        comando.Parameters.AddWithValue("@FOTOACTUAL", usuario.FotoActual);
                         comando.Parameters.AddWithValue("@UsuarioFotoActual", usuario.FotoActual);
                         
                         comando.ExecuteNonQuery();

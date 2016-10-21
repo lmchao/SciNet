@@ -18,6 +18,11 @@ namespace RedSocialWebUtil
             HttpContext.Current.Session.Add("UsuarioAutenticado", usuario);
         }
 
+        public static void LogOut()
+        {
+            HttpContext.Current.Session.Remove("UsuarioAutenticado");
+        }
+
         public static UsuarioEntity UsuarioAutenticado
         {
             get
