@@ -38,10 +38,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSocialWebUtil", "RedSocialWebUtil\RedSocialWebUtil.csproj", "{F520E209-B004-4AAC-ABF0-57DE5DED2980}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{840B44C3-1822-4C24-9C9D-99A5A983EB42}"
-	ProjectSection(SolutionItems) = preProject
-		Base\export\RedSocialORT22AGrupo02.sql = Base\export\RedSocialORT22AGrupo02.sql
-		Base\export\RedSocialORT22AGrupo02_data.sql = Base\export\RedSocialORT22AGrupo02_data.sql
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

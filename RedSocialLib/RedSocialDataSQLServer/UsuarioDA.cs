@@ -78,7 +78,7 @@ namespace RedSocialDataSQLServer
             }
         }
 
-        public void Actualizar(int id, string nombreArchivo, byte[] archivoFoto)
+        public void ActualizarFoto(int id, string nombreArchivo, byte[] archivoFoto)
         {
             try
             {
@@ -108,6 +108,43 @@ namespace RedSocialDataSQLServer
 
                     conexion.Close();
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al actualizar la foto.", ex);
+            }
+        }
+
+        public void Actualizar(UsuarioEntity usuario)
+        {
+            try
+            {
+                string query = "UPDATE USUARIO SET " 
+                               + "UsuarioNombre = @NOMBRE, "
+                               + "UsuarioApellido = @APELLIDO, "
+                               + "UsuarioFechaNacimiento = @FECHANACIMIENTO, "
+                               + "UsuarioSexo = @SEXO, "
+                               + "UsuarioFoto = @FOTO, "
+                               + "UsuarioFechaActualizacion = GETDATE(), "
+                               + "UsuarioFotoActual = @FOTOACTUAL " 
+                               + "WHERE UsuarioID = @ID";
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@ID", usuario.id.ToString());
+                        comando.Parameters.AddWithValue("@NOMBRE", usuario.Nombre);
+                        comando.Parameters.AddWithValue("@APELLIDO", usuario.Apellido);
+                        comando.Parameters.AddWithValue("@FECHANACIMIENTO", usuario.FechaNacimiento);
+                        comando.Parameters.AddWithValue("@SEXO", usuario.Sexo);
+                        comando.Parameters.AddWithValue("@FOTO", usuario.Foto);
+                        comando.Parameters.AddWithValue("@UsuarioFotoActual", usuario.FotoActual);
+                        
+                        comando.ExecuteNonQuery();
+                    }
+
+                }
+                
             }
             catch (Exception ex)
             {

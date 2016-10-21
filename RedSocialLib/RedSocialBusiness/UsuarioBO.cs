@@ -54,11 +54,24 @@ namespace RedSocialBusiness
             }
         }
 
+        public void save(UsuarioEntity usuario)
+        {
+            try
+            {
+                daUsuario.Actualizar(usuario);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se pudieron guardar los cambios.", ex);
+            }
+            
+        }
+
         public void ActualizarFoto(int id, string nombreArchivo, byte[] archivoFoto)
         {
             try
             {
-                daUsuario.Actualizar(id, nombreArchivo, archivoFoto);
+                daUsuario.ActualizarFoto(id, nombreArchivo, archivoFoto);
             }
             catch (ExcepcionDA ex)
             {
