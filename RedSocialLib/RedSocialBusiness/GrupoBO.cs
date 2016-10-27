@@ -59,5 +59,20 @@ namespace RedSocialBusiness
         //        throw new ExcepcionBO("No se pudo actualizar la foto.", ex);
         //    }
         //}
+
+        public static List<GrupoEntity> Listar(UsuarioEntity usuario, Boolean propios)
+        {
+            try
+            {
+
+                return GrupoDA.BuscarGrupos(usuario, propios);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se pudo realizar la busqueda de grupos.", ex);
+            }
+        }
     }
+
+   
 }
