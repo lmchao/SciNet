@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Autenticado.master" AutoEventWireup="true" CodeFile="Biografia.aspx.cs" Inherits="Biografia" %>
 
 <asp:Content ID="cphCuerpo" ContentPlaceHolderID="Cuerpo" Runat="Server">
+    <style>
+        #rptComentarios {
+            background-color:red;
+        }
+    </style>
    <div id="main">
    <div id="left">Left</div>
    <div id="content">Center</div>
@@ -14,7 +19,53 @@
       </a>
      
       <asp:Repeater ID="rptPublicaciones" runat="server" >
-          <%--DataSourceID="SqlDataSource_Publicaciones">--%>
+          <ItemTemplate>
+              <table>
+                  <tr>
+                      <td bgcolor="#CCFFCC">
+                        <asp:Label runat="server" ID="Label1" 
+                            text='<%# Eval("Descripcion") %>' />
+                      </td>
+                      <td bgcolor="#CCFFCC">
+                          <asp:Label runat="server" ID="Label2" 
+                              text='<%# Eval("UsuarioID") %>' />
+                      </td>
+                  </tr>
+              </table>
+              <asp:Repeater DataSource="<%#Container.DataItem%>" runat="server">
+                  <ItemTemplate>
+                      <table>
+                          <tr>
+                              <td>
+                                  nombre usuario
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  comentario
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <table>
+                                      <tr>
+                                          <td>
+                                              fecha
+                                          </td>
+                                          <td>
+                                              puntuacion digamos
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </ItemTemplate>
+              </asp:Repeater>
+          </ItemTemplate>
+      </asp:Repeater>
+
+    <asp:Repeater ID="rptGrupos" runat="server" >          
           <HeaderTemplate>
               <table>
               <tr>
@@ -27,28 +78,14 @@
           <tr>
               <td bgcolor="#CCFFCC">
                 <asp:Label runat="server" ID="Label1" 
-                    text='<%# Eval("Descripcion") %>' />
+                    text='<%# Eval("nombre") %>' />
               </td>
               <td bgcolor="#CCFFCC">
                   <asp:Label runat="server" ID="Label2" 
-                      text='<%# Eval("UsuarioID") %>' />
+                      text='<%# Eval("descripcion") %>' />
               </td>
           </tr>
           </ItemTemplate>
-
-<%--          <AlternatingItemTemplate>
-          <tr>
-              <td >
-                <asp:Label runat="server" ID="Label3" 
-                    text='<%# Eval("Descripcion") %>' />
-              </td>
-              <td >
-                 <asp:Label runat="server" ID="Label4" 
-                     text='<%# Eval("UsuarioID") %>' />
-              </td>          
-          </tr>
-          </AlternatingItemTemplate>--%>
-
           <FooterTemplate>
               </table>
           </FooterTemplate>

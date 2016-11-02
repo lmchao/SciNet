@@ -63,6 +63,57 @@ namespace RedSocialDataSQLServer
             }
         }
 
+        public static List<GrupoEntity> BuscarGrupos(UsuarioEntity usuario, Boolean propios)
+        {
+            try
+            {
+                string query = "SELECT * FROM Grupo G LEFT JOIN GrupoUsuario GU ON (G.GrupoID = GU.GrupoID) WHERE GU.UsuarioID ";
+                string parameterID = "";
+                List<GrupoEntity> grupos = new List<GrupoEntity>();
+                
+                parameterID = ((UsuarioEntity)usuario).id.ToString();
+
+                if (propios) {
+                    query += " = ";
+                } else  {
+                    query += " <> ";
+                }
+
+                query += " @Parameter_ID";                
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Parameter_ID", parameterID);
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            while (cursor != null && cursor.Read())
+                            {
+                                GrupoEntity grupo = new GrupoEntity();
+                                grupo.id = (int)cursor["GrupoID"];
+                                grupo.nombre = (string)cursor["GrupoNombre"];
+                                grupo.descripcion = (string)cursor["GrupoDescripcion"];
+                                grupo.fechaCreacion = (DateTime)cursor["GrupoFechaCreacion"];
+                                grupo.fechaActualizacion = (DateTime)cursor["GrupoFechaActualizacion"];
+                                
+                                grupos.Add(grupo);
+                            }
+
+                            cursor.Close();
+                        }
+                    }
+
+                    conexion.Close();
+                }
+
+                return grupos;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar la lista de grupos.", ex);
+            }
+        }
         //public void Actualizar(int id, string nombreArchivo, byte[] archivoFoto)
         //{
         //    try

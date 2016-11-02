@@ -16,8 +16,13 @@ public partial class Biografia : System.Web.UI.Page
     {
         if (SessionHelper.UsuarioAutenticado != null)
         {
-            rptPublicaciones.DataSource = PublicacionDA.BuscarPublicaciones(SessionHelper.UsuarioAutenticado);
+            rptPublicaciones.DataSource = PublicacionBO.Listar(SessionHelper.UsuarioAutenticado);
             rptPublicaciones.DataBind();
+
+            rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado,true);
+            rptGrupos.DataBind();
+
+            
 
             //rptPublicaciones.DataSource =
         }

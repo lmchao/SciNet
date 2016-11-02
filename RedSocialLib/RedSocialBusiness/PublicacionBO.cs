@@ -59,19 +59,19 @@ namespace RedSocialBusiness
                 throw new ExcepcionBO("No se pudo actualizar la imagen de la publicación.", ex);
             }
         }
-        /*
-        public List<PublicacionEntity> Listar(object filtro)
+
+        public static List<PublicacionEntity> Listar(object filtro)
         {
             try
             {
 
-                return daPublicacion.BuscarPublicaciones(filtro);
+                return PublicacionDA.BuscarPublicaciones(filtro);
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("No se pudo realizar la registración del publicacion.", ex);
+                throw new ExcepcionBO("No se pudo realizar la busqueda de publicaciones.", ex);
             }
         }
-        */
+
     }
 }

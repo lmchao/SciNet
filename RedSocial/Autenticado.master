@@ -14,7 +14,9 @@
             <asp:Table runat="server" ID="tblCabecera" CssClass="Cabecera">
                 
                 <asp:TableRow>
-                    <asp:TableCell CssClass="RedSocialORTTitulo"><asp:Label runat="server" ID="lblRedSocialORT" Text="SciNet" CssClass="RedSocialORTTitulo"></asp:Label></asp:TableCell>
+                    <asp:TableCell CssClass="RedSocialORTTitulo" onClick="javascript:window.location='Biografia.aspx';">
+                        <asp:Label runat="server" ID="lblRedSocialORT" Text="SciNet" CssClass="RedSocialORTTitulo" ></asp:Label>
+                    </asp:TableCell>
                     <asp:TableCell CssClass="EtiquetaCabecera">
                         <a href="actualizardatos.aspx">
                         <asp:Label runat="server" ID="usuario" CssClass="EtiquetaCabecera" ></asp:Label>
