@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Autenticado.master" AutoEventWireup="true" CodeFile="Biografia.aspx.cs" Inherits="Biografia" %>
 
 <asp:Content ID="cphCuerpo" ContentPlaceHolderID="Cuerpo" Runat="Server">
+   <%--<style style="></style>--%>
    <div id="main">
    <div id="left">Left</div>
    <div id="content">Center</div>
    <div id="right">Right</div>
-   <div style="clear:both"></div>
+    <div style="clear:both"></div> 
    <div id="footer">Footer</div>
 </div> 
 
@@ -13,7 +14,7 @@
       <asp:Label runat="server" ID="nuevoGrupo" text="Nuevo Grupo" CssClass="EtiquetaNuevoGrupo" ></asp:Label>
       </a>
      
-      <asp:Repeater ID="rptPublicaciones" runat="server" >
+      <asp:Repeater ID="rptPublicaciones" runat="server">
           <%--DataSourceID="SqlDataSource_Publicaciones">--%>
           <HeaderTemplate>
               <table>
@@ -24,7 +25,9 @@
           </HeaderTemplate>
 
           <ItemTemplate>
-          <tr>
+          
+          <tr >
+              <div runat="server" CssClass="ItemPublicacion">
               <td bgcolor="#CCFFCC">
                 <asp:Label runat="server" ID="Label1" 
                     text='<%# Eval("Descripcion") %>' />
@@ -33,7 +36,9 @@
                   <asp:Label runat="server" ID="Label2" 
                       text='<%# Eval("UsuarioID") %>' />
               </td>
+              </div>
           </tr>
+        
           </ItemTemplate>
 
 <%--          <AlternatingItemTemplate>

@@ -12,7 +12,7 @@ public partial class Autenticado : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
         if (SessionHelper.UsuarioAutenticado != null) { 
             usuario.Text = SessionHelper.UsuarioAutenticado.Nombre + " " + SessionHelper.UsuarioAutenticado.Apellido;
         } else {

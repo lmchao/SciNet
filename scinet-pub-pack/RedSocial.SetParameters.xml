@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="scinet" />
+  <setParameter name="ConexionRedSocial-Web.config Connection String" value="Data Source=a-srv-bdinst.almagro.ort.arg;Initial Catalog=RedSocialORT22AGrupo02;User ID=RedSocialORT;Password=redsocialort.2013" />
+</parameters>
