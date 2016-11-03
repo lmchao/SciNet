@@ -150,6 +150,34 @@ namespace RedSocialDataSQLServer
         //    }
         //}
 
+        public bool Existe(GrupoEntity grupo)
+        {
+            bool returnvalue = false;
+            try
+            {
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    string query = "SELECT GrupoID FROM Grupo G WHERE G.GrupoID = @GrupoID or GrupoNombre = @GrupoNombre";
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@GrupoID", grupo.id);
+                        comando.Parameters.AddWithValue("@GrupoNombre", grupo.nombre);
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            returnvalue = cursor.HasRows;
+                            cursor.Close();
+                        }
+                    }
+                    conexion.Close();
+                }
+                return returnvalue;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar la lista de grupos.", ex);
+            }
+        }
+    
         //public bool ExisteEmail(string email)
         //{
         //    try

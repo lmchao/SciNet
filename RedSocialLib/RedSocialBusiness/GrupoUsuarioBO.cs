@@ -22,6 +22,7 @@ namespace RedSocialBusiness
         {
             try
             {
+
                 grupoUsuario.ValidarDatos();
 
                 daGrupoUsuario.Insertar(grupoUsuario);

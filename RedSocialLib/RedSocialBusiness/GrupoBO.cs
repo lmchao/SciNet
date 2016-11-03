@@ -38,9 +38,13 @@ namespace RedSocialBusiness
         {
             try
             {
-                grupo.ValidarDatos();                
-
+                if (daGrupo.Existe(grupo))
+                {
+                    throw new GrupoExisteExcepcionBO(); 
+                }
+                grupo.ValidarDatos();
                 daGrupo.Insertar(grupo);
+
             }
             catch (ExcepcionDA ex)
             {

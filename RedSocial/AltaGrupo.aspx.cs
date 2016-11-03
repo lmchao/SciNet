@@ -34,6 +34,7 @@ public partial class Registracion : System.Web.UI.Page
     {
         try
         {
+            
             GrupoEntity grupo = new GrupoEntity();
             grupo.nombre = txtNombre.Text;            
             grupo.descripcion = txtDescripcion.Text;
@@ -43,7 +44,10 @@ public partial class Registracion : System.Web.UI.Page
             grupoUsuario.grupoID = grupo.id;
             grupoUsuario.usuarioID = SessionHelper.UsuarioAutenticado.id;
             boGrupoUsuario.Registrar(grupoUsuario);
-
+            Response.Write("<script>alert('" + "Se creo el grupo " + grupo.nombre +"')</script>");
+            //Response.Redirect(HttpContext.Current.Request.Url.Authority + "/biografia.aspx");
+            string msg = HttpContext.Current.Request.Url.Authority + "/biografia.aspx";
+            Response.Write(@"<script language=""javascript"" >window.location = """ + msg + @""";</script>");
             //SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(txtEmail.Text, txtPassword.Text));
             //System.Web.Security.FormsAuthentication.RedirectFromLoginPage(SessionHelper.UsuarioAutenticado.Email, false);
         }

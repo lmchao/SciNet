@@ -52,15 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutenticacionExcepcionBO.cs" />
+    <Compile Include="Excepciones\AutenticacionExcepcionBO.cs" />
+    <Compile Include="Excepciones\GrupoExisteExcepcionBO.cs" />
     <Compile Include="GrupoUsuarioBO.cs" />
     <Compile Include="GrupoBO.cs" />
     <Compile Include="MensajeBO.cs" />
     <Compile Include="ComentarioBO.cs" />
     <Compile Include="PublicacionBO.cs" />
-    <Compile Include="VerificacionEmailExcepcionBO.cs" />
-    <Compile Include="EmailExisteExcepcionBO.cs" />
-    <Compile Include="ExcepcionBO.cs" />
+    <Compile Include="Excepciones\VerificacionEmailExcepcionBO.cs" />
+    <Compile Include="Excepciones\EmailExisteExcepcionBO.cs" />
+    <Compile Include="Excepciones\ExcepcionBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioBO.cs" />
   </ItemGroup>
