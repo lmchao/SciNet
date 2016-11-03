@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SolicitudEntity.cs" />
     <Compile Include="MensajeEntity.cs" />
     <Compile Include="ComentarioEntity.cs" />
     <Compile Include="GrupoEntity.cs" />
