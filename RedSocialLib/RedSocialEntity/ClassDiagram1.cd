@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="RedSocialEntity.ComentarioEntity">
+    <Position X="7" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAABgAAAAAAAAIAAACAAAAAAAoA=</HashCode>
+      <FileName>ComentarioEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedSocialEntity.DatosObligatoriosExcepcion">
+    <Position X="2.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DatosObligatoriosExcepcion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedSocialEntity.EmailExcepcion">
+    <Position X="4" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmailExcepcion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedSocialEntity.FechaNacimientoExcepcion">
+    <Position X="0.5" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FechaNacimientoExcepcion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedSocialEntity.GrupoEntity">
+    <Position X="2.25" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAiAAAEAAAAAAAAAAAAAACAAAAAAAgA=</HashCode>
+      <FileName>GrupoEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedSocialEntity.GrupoUsuarioEntity">
+    <Position X="4" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAgAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GrupoUsuarioEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedSocialEntity.MensajeEntity">
+    <Position X="0.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAQAAAAgAAAABgAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>MensajeEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedSocialEntity.PublicacionEntity">
+    <Position X="9.5" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABABAAAAAgCAAEAgAAAEAAAAAAAAAAAAAAAAoA=</HashCode>
+      <FileName>PublicacionEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedSocialEntity.UsuarioEntity">
+    <Position X="4" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAACAAAAgEgAAAgAAAAAAAAEACAEAAQAAAAgA=</HashCode>
+      <FileName>UsuarioEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

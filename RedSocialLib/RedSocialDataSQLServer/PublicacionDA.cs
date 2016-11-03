@@ -60,18 +60,18 @@ namespace RedSocialDataSQLServer
         {
             try
             {
-                string query = "SELECT * FROM Publicacion WHERE ";
+                string query = "SELECT * FROM Publicacion p left join Mensaje m on m.PublicacionID = p.PublicacionID WHERE ";
                 string parameterID = "";
-                List<PublicacionEntity> publicaciones = new List<PublicacionEntity>();
+                List<PublicacionEntity> listaPublicaciones = new List<PublicacionEntity>();
                 if (filtro.GetType().Name == "GrupoEntity")
                 {
                     parameterID = ((GrupoEntity)filtro).id.ToString();
-                    query += "GrupoID = @Parameter_ID";
+                    query += "p.GrupoID = @Parameter_ID";
                 }
                 if (filtro.GetType().Name == "UsuarioEntity")
                 {
                     parameterID = ((UsuarioEntity)filtro).id.ToString();
-                    query += "UsuarioID = @Parameter_ID";
+                    query += "p.UsuarioID = @Parameter_ID";
                 }
 
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
@@ -81,18 +81,43 @@ namespace RedSocialDataSQLServer
                         comando.Parameters.AddWithValue("@Parameter_ID", parameterID);
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {
+                            int codant = 0;
+                            PublicacionEntity publicacion = new PublicacionEntity();
+                            publicacion.listaComentarios = new List<ComentarioEntity>();
                             while (cursor != null && cursor.Read())
                             {
-                                PublicacionEntity publicacion = new PublicacionEntity();
-                                publicacion.id = (int)cursor["PublicacionID"];
-                                if (cursor["GrupoID"] != DBNull.Value) publicacion.grupoID = (int)cursor["GrupoID"];
-                                publicacion.usuarioID = (int)cursor["UsuarioID"];
-                                publicacion.descripcion = (string)cursor["Descripcion"];
-                                publicacion.actualizacion = (DateTime)cursor["PublicacionActualizacion"];
-                                publicacion.calificacion = (int)cursor["PublicacionCalificacion"];
-                                if (cursor["PublicacionImagen"] != DBNull.Value) publicacion.imagen = (byte[])cursor["PublicacionImagen"];
-                                publicaciones.Add(publicacion);
+                                int pubID = (int)cursor["PublicacionID"];
+                                if (codant != pubID)
+                                {
+                                    if(codant!=0)
+                                        listaPublicaciones.Add(publicacion);
+
+                                    publicacion.id = pubID;
+                                    if (cursor["GrupoID"] != DBNull.Value)
+                                        publicacion.grupoID = (int)cursor["GrupoID"];
+                                    publicacion.usuarioID = (int)cursor["UsuarioID"];
+                                    publicacion.descripcion = (string)cursor["Descripcion"];
+                                    publicacion.actualizacion = (DateTime)cursor["PublicacionActualizacion"];
+                                    publicacion.calificacion = (int)cursor["PublicacionCalificacion"];
+                                    if (cursor["PublicacionImagen"] != DBNull.Value)
+                                        publicacion.imagen = (byte[])cursor["PublicacionImagen"];
+
+                                    codant = pubID;
+                                }
+
+                                if (cursor["MensajeID"] != DBNull.Value)
+                                {
+                                    ComentarioEntity comentario = new ComentarioEntity();
+                                    comentario.id = (int)cursor["MensajeID"];
+                                    comentario.usuarioID = (int)cursor["UsuarioID"];
+                                    comentario.texto = cursor["MensajeTexto"].ToString();
+                                    comentario.fechaActualizacion = (DateTime)cursor["MensajeFecha"];
+
+                                    publicacion.listaComentarios.Add(comentario);
+                                }
+                                    
                             }
+                            listaPublicaciones.Add(publicacion);
 
                             cursor.Close();
                         }
@@ -101,7 +126,7 @@ namespace RedSocialDataSQLServer
                     conexion.Close();
                 }
 
-                return publicaciones;
+                return listaPublicaciones;
             }
             catch (Exception ex)
             {

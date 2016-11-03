@@ -25,6 +25,8 @@ namespace RedSocialEntity
         public int calificacion { get; set; }
         public byte[] imagen { get; set; }
 
+        public List<ComentarioEntity> listaComentarios { get; set; }
+
         public void ValidarDatos()
         {
             if (descripcion.Trim() == "" ||

@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SolicitudEntity.cs" />
     <Compile Include="MensajeEntity.cs" />
     <Compile Include="ComentarioEntity.cs" />
     <Compile Include="GrupoEntity.cs" />
@@ -68,6 +69,9 @@
       <Project>{9AA2AAB8-B07D-4DF5-9DA9-A588E5E2E267}</Project>
       <Name>RedSocialComun</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
