@@ -2,8 +2,13 @@
 
 <asp:Content ID="cphCuerpo" ContentPlaceHolderID="Cuerpo" Runat="Server">
     <style>
-        #rptComentarios {
-            background-color:red;
+        #rptPublicaciones {
+            width:100%;
+        }
+
+        .NombreUsuario {
+            font-weight:bold;
+            forecolor:Blue;
         }
     </style>
 
@@ -20,55 +25,103 @@
                         <td style="width:10%;">
 
                         </td>
-                        <td style="width:80%;">
-                            <asp:Repeater ID="rptPublicaciones" runat="server" OnItemDataBound="rptPublicaciones_ItemDataBound">
+                        <td style="width:70%;text-align:center;">
+                            <asp:Repeater ID="rptPublicaciones" runat="server" OnItemDataBound="rptPublicaciones_ItemDataBound" >
                               <ItemTemplate>
-                                  <table>
+                                  <table style="margin: 10px 10px 10px 10px;border: 1px solid blue; width:90%;">
                                       <tr>
-                                          <td bgcolor="#CCFFCC">
-                                            <asp:Label runat="server" ID="Label1" 
-                                                text='<%# Eval("Descripcion") %>' />
-                                          </td>
-                                          <td bgcolor="#CCFFCC">
-                                              <asp:Label runat="server" ID="Label2" 
-                                                  text='<%# Eval("UsuarioID") %>' />
+                                          <td style="height:20px;">
+                                              <table style="width:100%;">
+                                                  <tr>
+                                                      <td style="width:20%;">
+                                                          <div>
+                                                              <asp:Image ID="imgUsuarioPost" runat="server" />
+                                                          </div>
+                                                      </td>
+                                                      <td>
+                                                          <asp:Label ID="txtNombreUsuario" runat="server" CssClass="NombreUsuario" Text="texto de prueba" />
+                                                      </td>
+                                                  </tr>
+                                              </table>
                                           </td>
                                       </tr>
-                                  </table>
-                                  <asp:Repeater ID="rptComentarios" runat="server">
-                                      <ItemTemplate>
-                                          <table>
-                                              <tr>
-                                                  <td>
-                                                      nombre usuario
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td>
-                                                      comentario
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td>
+                                      <tr>
+                                          <td style="height:auto;">
+                                              <table style="margin: 10px 10px 10px 10px; width:100%;">
+                                                  <tr>
+                                                      <td style="text-align:left;">
+                                                          <div>
+                                                              texto del mensaje
+                                                          </div>
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                          <div>
+                                                              imagen subida
+                                                          </div>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <table style="width:100%;">
+                                                  <tr>
+                                                      <td style="text-align:left;">
+                                                          <div>
+                                                              fecha
+                                                          </div>
+                                                      </td>
+                                                      <td style="text-align:right;">
+                                                          <div>
+                                                              imagen ranking
+                                                          </div>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <asp:Repeater ID="rptComentarios" runat="server">
+                                                  <ItemTemplate>
                                                       <table>
                                                           <tr>
                                                               <td>
-                                                                  fecha
+                                                                  nombre usuario
                                                               </td>
+                                                          </tr>
+                                                          <tr>
                                                               <td>
-                                                                  puntuacion digamos
+                                                                  comentario
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>
+                                                                  <table>
+                                                                      <tr>
+                                                                          <td>
+                                                                              fecha
+                                                                          </td>
+                                                                          <td>
+                                                                              puntuacion digamos
+                                                                          </td>
+                                                                      </tr>
+                                                                  </table>
                                                               </td>
                                                           </tr>
                                                       </table>
-                                                  </td>
-                                              </tr>
-                                          </table>
-                                      </ItemTemplate>
-                                  </asp:Repeater>
+                                                  </ItemTemplate>
+                                              </asp:Repeater>
+                                          </td>
+                                      </tr>
+                                  </table>
                               </ItemTemplate>
                           </asp:Repeater>
                         </td>
-                        <td style="width:10%;">
+                        <td style="width:20%; vertical-align:top;">
                             <asp:Repeater ID="rptGrupos" runat="server" >          
                               <HeaderTemplate>
                                   <table>
@@ -94,6 +147,9 @@
                                   </table>
                               </FooterTemplate>
                           </asp:Repeater>
+                        </td>
+                        <td style="width:10%;">
+
                         </td>
                     </tr>
                 </table>
