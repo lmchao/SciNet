@@ -16,7 +16,10 @@ public partial class Biografia : System.Web.UI.Page
     {
         if (SessionHelper.UsuarioAutenticado != null)
         {
-            rptPublicaciones.DataSource = PublicacionBO.Listar(SessionHelper.UsuarioAutenticado);
+            List<PublicacionEntity> listPublicaciones = PublicacionBO.Listar(SessionHelper.UsuarioAutenticado);
+            
+
+            rptPublicaciones.DataSource = listPublicaciones ;
             rptPublicaciones.DataBind();
 
             rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado,true);
@@ -27,5 +30,17 @@ public partial class Biografia : System.Web.UI.Page
             //rptPublicaciones.DataSource =
         }
     }
-        
+
+
+    protected void rptPublicaciones_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.Item)
+        {
+            Repeater rptComentarios = (Repeater)e.Item.FindControl("rptComentarios");
+
+            rptComentarios.DataSource = ((PublicacionEntity)e.Item.DataItem).listaComentarios;
+            rptComentarios.DataBind();
+
+        }
+    }
 }
