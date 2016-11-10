@@ -78,5 +78,16 @@ namespace RedSocialBusiness
                 throw new ExcepcionBO("No se pudo actualizar la foto.", ex);
             }
         }
+        public static List<UsuarioEntity> BuscarUsuariosParaAmistad(UsuarioEntity usuario, String nombre)
+        {
+            try
+            {
+                return UsuarioDA.BuscarUsuariosParaAmistad(usuario, nombre);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se pudo realizar la busqueda de usuarios.", ex);
+            }
+        }
     }
 }

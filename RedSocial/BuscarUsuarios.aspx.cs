@@ -16,16 +16,24 @@ public partial class Biografia : System.Web.UI.Page
     {
         if (SessionHelper.UsuarioAutenticado != null)
         {
-            rptPublicaciones.DataSource = PublicacionBO.Listar(SessionHelper.UsuarioAutenticado);
-            rptPublicaciones.DataBind();
-
-            rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado,true);
-            rptGrupos.DataBind();
-
-            
+            rptUsuarios.DataSource = UsuarioBO.BuscarUsuariosParaAmistad(SessionHelper.UsuarioAutenticado,"");
+            rptUsuarios.DataBind();                                  
 
             //rptPublicaciones.DataSource =
         }
     }
-        
+
+    //protected void CargarFotoPerfil(object sender, EventArgs e)
+    //{
+    //    if (SessionHelper.UsuarioAutenticado != null)
+    //    {
+    //        Byte[] foto = SessionHelper.UsuarioAutenticado.FotoActual;
+    //        if (foto != null)
+    //        {
+    //            string base64String = Convert.ToBase64String(foto, 0, foto.Length);
+    //            imgFotoPerfil.ImageUrl = "data:image/png;base64," + base64String;
+    //        }
+    //    }
+    //}
+
 }

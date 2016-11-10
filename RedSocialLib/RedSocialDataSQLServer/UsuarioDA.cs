@@ -221,7 +221,7 @@ namespace RedSocialDataSQLServer
         {
             try
             {
-                string query = "SELECT * FROM Usuario AS U WHERE NOT EXISTS (SELECT UsuarioID FROM Solicitud WHERE UsuarioIDSolicitud = ";
+                string query = "SELECT * FROM Usuario AS U WHERE NOT EXISTS (SELECT UsuarioID FROM Solicitud WHERE UsuarioIDSolicita = ";
 
                 query += usuario.id.ToString();
 
@@ -229,9 +229,14 @@ namespace RedSocialDataSQLServer
 
                 query += usuario.id.ToString();
 
-                query += " UsuarioIDAmigo = U.UsuarioID) AND U.UsuarioID != ";
+                query += " AND UsuarioIDAmigo = U.UsuarioID) AND U.UsuarioID != ";
 
                 query += usuario.id.ToString();
+
+                if (nombre != "")
+                {
+                    query += " AND UsuarioNombre LIKE '%" + nombre + "%' ORDER BY UsuarioNombre";
+                }
 
                 List<UsuarioEntity> usuarios = new List<UsuarioEntity>();
 
