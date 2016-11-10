@@ -26,6 +26,23 @@
 
                         </td>
                         <td style="width:70%;text-align:center;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <%--<asp:TextBox ID="txtPublicar" runat="server"  />--%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            </table>
                             <asp:Repeater ID="rptPublicaciones" runat="server" OnItemDataBound="rptPublicaciones_ItemDataBound" >
                               <ItemTemplate>
                                   <table style="margin: 10px 10px 10px 10px;border: 1px solid blue; width:90%;">
@@ -35,11 +52,11 @@
                                                   <tr>
                                                       <td style="width:20%;">
                                                           <div>
-                                                              <asp:Image ID="imgUsuarioPost" runat="server" />
+                                                              <asp:Image ID="imgPubUsuarioPost" runat="server" />
                                                           </div>
                                                       </td>
                                                       <td>
-                                                          <asp:Label ID="txtNombreUsuario" runat="server" CssClass="NombreUsuario" Text="texto de prueba" />
+                                                          <asp:Label ID="lblPubNombreUsuario" runat="server" CssClass="NombreUsuario" Text="texto de prueba" />
                                                       </td>
                                                   </tr>
                                               </table>
@@ -51,14 +68,14 @@
                                                   <tr>
                                                       <td style="text-align:left;">
                                                           <div>
-                                                              texto del mensaje
+                                                              <asp:Label ID="lblPubMensaje" runat="server" Text="Mensaje de la publicacion" />
                                                           </div>
                                                       </td>
                                                   </tr>
                                                   <tr>
                                                       <td>
                                                           <div>
-                                                              imagen subida
+                                                              <asp:Image ID="imgPubImagen" runat="server" />
                                                           </div>
                                                       </td>
                                                   </tr>
@@ -71,12 +88,13 @@
                                                   <tr>
                                                       <td style="text-align:left;">
                                                           <div>
-                                                              fecha
+                                                              <asp:Label ID="lblPubFecha" runat="server" Text="10/10/2016" />
                                                           </div>
                                                       </td>
                                                       <td style="text-align:right;">
                                                           <div>
-                                                              imagen ranking
+                                                              <%--<asp:Image ID="imgPubRanking" runat="server" />--%>
+                                                              <asp:Label ID="imgPubRanking" runat="server" Text="10 puntos" />
                                                           </div>
                                                       </td>
                                                   </tr>
@@ -85,28 +103,28 @@
                                       </tr>
                                       <tr>
                                           <td>
-                                              <asp:Repeater ID="rptComentarios" runat="server">
+                                              <asp:Repeater ID="rptComentarios" runat="server" OnItemDataBound="rptComentarios_ItemDataBound" >
                                                   <ItemTemplate>
-                                                      <table>
+                                                      <table style="width:100%;text-align:left; border:solid 1px blue;">
                                                           <tr>
                                                               <td>
-                                                                  nombre usuario
+                                                                  <asp:Label ID="lblComNombre" runat="server" Text="Com nombre" CssClass="NombreUsuario" />
                                                               </td>
                                                           </tr>
                                                           <tr>
                                                               <td>
-                                                                  comentario
+                                                                  <asp:Label ID="lblComTexto" runat="server" Text="Com teXto" />
                                                               </td>
                                                           </tr>
                                                           <tr>
                                                               <td>
-                                                                  <table>
+                                                                  <table style="width:100%;">
                                                                       <tr>
                                                                           <td>
-                                                                              fecha
+                                                                              <asp:Label ID="lblComFecha" runat="server" Text="10/10/2016" />
                                                                           </td>
-                                                                          <td>
-                                                                              puntuacion digamos
+                                                                          <td style="text-align:right;">
+                                                                              <asp:Label ID="lblComPuntos" runat="server" Text="1 punto" />
                                                                           </td>
                                                                       </tr>
                                                                   </table>
