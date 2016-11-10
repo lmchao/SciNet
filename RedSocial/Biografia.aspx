@@ -29,7 +29,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <%--<asp:TextBox ID="txtPublicar" runat="server"  />--%>
+                                        <asp:TextBox ID="txtPublicar" runat="server" TextMode="MultiLine" Width="400px" Height="50px"  />
                                     </td>
                                 </tr>
                                 <tr>
@@ -39,7 +39,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-
+                                        <asp:Button ID="btnPublicar" runat="server" Text="PUBLICAR" CssClass="BotonRegistracion" OnClick="btnPublicar_Click" />
                                     </td>
                                 </tr>
                             </table>

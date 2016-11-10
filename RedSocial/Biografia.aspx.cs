@@ -81,4 +81,17 @@ public partial class Biografia : System.Web.UI.Page
             lblComPuntos.Text = comentario.calificacion.ToString();
         }
     }
+
+    protected void btnPublicar_Click(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(txtPublicar.Text))
+        {
+            PublicacionEntity publicacion = new PublicacionEntity();
+            publicacion.usuarioID = SessionHelper.UsuarioAutenticado.id;
+            publicacion.descripcion = txtPublicar.Text;
+            publicacion.actualizacion = DateTime.Now;
+
+            new PublicacionBO().Registrar(publicacion);
+        }
+    }
 }

@@ -44,10 +44,13 @@ public partial class Registracion : System.Web.UI.Page
             grupoUsuario.grupoID = grupo.id;
             grupoUsuario.usuarioID = SessionHelper.UsuarioAutenticado.id;
             boGrupoUsuario.Registrar(grupoUsuario);
-            Response.Write("<script>alert('" + "Se creo el grupo " + grupo.nombre +"')</script>");
+            string msg = /*HttpContext.Current.Request.Url.Authority + */ "/biografia.aspx";
+            //Response.Write("<script>alert('" + "Se creo el grupo " + grupo.nombre + "');</script>");
+            Response.Write(@"<script type=""text/javascript"">window.location = '" + msg + @"';</script>");
+            WebHelper.MostrarMensaje(Page, "Se creo el grupo " + grupo.nombre);
             //Response.Redirect(HttpContext.Current.Request.Url.Authority + "/biografia.aspx");
-            string msg = HttpContext.Current.Request.Url.Authority + "/biografia.aspx";
-            Response.Write(@"<script language=""javascript"" >window.location = """ + msg + @""";</script>");
+
+            //Response.Write(@"<script language=""javascript"" >window.location = """ + msg + @""";</script>");
             //SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(txtEmail.Text, txtPassword.Text));
             //System.Web.Security.FormsAuthentication.RedirectFromLoginPage(SessionHelper.UsuarioAutenticado.Email, false);
         }

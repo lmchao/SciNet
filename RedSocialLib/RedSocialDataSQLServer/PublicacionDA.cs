@@ -38,11 +38,18 @@ namespace RedSocialDataSQLServer
                         SqlCommandBuilder.DeriveParameters(comando);
 
                         comando.Parameters["@UsuarioID"].Value = publicacion.usuarioID;
-                        comando.Parameters["@GrupoID"].Value = publicacion.grupoID;
+                        if(publicacion.grupoID>0)
+                            comando.Parameters["@GrupoID"].Value = publicacion.grupoID;
+                        else
+                            comando.Parameters["@GrupoID"].Value = DBNull.Value;
                         comando.Parameters["@Descripcion"].Value = publicacion.descripcion.Trim();
                         comando.Parameters["@PublicacionActualizacion"].Value = publicacion.actualizacion;
-                        comando.Parameters["@ComentarioCalificacion"].Value = publicacion.calificacion;
-                        comando.Parameters["@PublicacionImagen"].Value = publicacion.imagen;
+
+                        //if (publicacion.imagen != null)
+                            comando.Parameters["@PublicacionImagen"].Value = publicacion.imagen;
+                        //else
+                        //    comando.Parameters["@PublicacionImagen"].Value = DBNull.Value;
+
                         comando.ExecuteNonQuery();
                         publicacion.id = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);
                     }
