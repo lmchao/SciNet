@@ -60,7 +60,7 @@ namespace RedSocialDataSQLServer
         {
             try
             {
-                string query = "SELECT * FROM Publicacion p left join Mensaje m on m.PublicacionID = p.PublicacionID WHERE ";
+                string query = "SELECT * FROM Publicacion p left join Comentario c on c.PublicacionID = p.PublicacionID WHERE ";
                 string parameterID = "";
                 List<PublicacionEntity> listaPublicaciones = new List<PublicacionEntity>();
                 if (filtro.GetType().Name == "GrupoEntity")
@@ -89,9 +89,11 @@ namespace RedSocialDataSQLServer
                                 int pubID = (int)cursor["PublicacionID"];
                                 if (codant != pubID)
                                 {
-                                    if(codant!=0)
+                                    if (codant != 0)
+                                    {                                        
                                         listaPublicaciones.Add(publicacion);
-
+                                        publicacion = new PublicacionEntity();
+                                    }
                                     publicacion.id = pubID;
                                     if (cursor["GrupoID"] != DBNull.Value)
                                         publicacion.grupoID = (int)cursor["GrupoID"];
@@ -105,13 +107,14 @@ namespace RedSocialDataSQLServer
                                     codant = pubID;
                                 }
 
-                                if (cursor["MensajeID"] != DBNull.Value)
+                                if (cursor["ComentarioID"] != DBNull.Value)
                                 {
                                     ComentarioEntity comentario = new ComentarioEntity();
-                                    comentario.id = (int)cursor["MensajeID"];
+                                    comentario.id = (int)cursor["ComentarioID"];
                                     comentario.usuarioID = (int)cursor["UsuarioID"];
-                                    comentario.texto = cursor["MensajeTexto"].ToString();
-                                    comentario.fechaActualizacion = (DateTime)cursor["MensajeFecha"];
+                                    comentario.texto = cursor["ComentarioTexto"].ToString();
+                                    comentario.calificacion = (int)cursor["ComentarioCalificacion"];
+                                    comentario.fechaActualizacion = (DateTime)cursor["ComentarioFechaActualizacion"];
 
                                     publicacion.listaComentarios.Add(comentario);
                                 }

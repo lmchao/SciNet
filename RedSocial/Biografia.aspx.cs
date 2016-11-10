@@ -53,7 +53,7 @@ public partial class Biografia : System.Web.UI.Page
             {
                 imgPubImagen.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(publicacion.imagen, 0, publicacion.imagen.Length); ;                
             }
-            lblPubFecha.Text = publicacion.actualizacion.ToShortTimeString();
+            lblPubFecha.Text = publicacion.actualizacion.ToString();
 
             imgPubRanking.Text = publicacion.calificacion.ToString();
 
@@ -77,7 +77,7 @@ public partial class Biografia : System.Web.UI.Page
 
             lblComNombre.Text = comentario.usuarioID.ToString();
             lblComTexto.Text = comentario.texto;
-            lblComFecha.Text = comentario.fechaActualizacion.ToShortTimeString();
+            lblComFecha.Text = comentario.fechaActualizacion.ToString();
             lblComPuntos.Text = comentario.calificacion.ToString();
         }
     }

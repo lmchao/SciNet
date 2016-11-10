@@ -15,6 +15,7 @@ namespace RedSocialEntity
             actualizacion = DateTime.MinValue;
             calificacion = 0;
             imagen = null;
+            listaComentarios = new List<ComentarioEntity>();
         }
 
         public int id { get; set; }
