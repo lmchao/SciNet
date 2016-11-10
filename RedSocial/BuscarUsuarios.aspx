@@ -18,50 +18,20 @@
       <asp:Label runat="server" ID="nuevoGrupo" text="Nuevo Grupo" CssClass="EtiquetaNuevoGrupo" ></asp:Label>
       </a>
      
-      <asp:Repeater ID="rptPublicaciones" runat="server" >
+      <asp:Repeater ID="rptUsuarios" runat="server" >
           <ItemTemplate>
               <table>
                   <tr>
                       <td bgcolor="#CCFFCC">
                         <asp:Label runat="server" ID="Label1" 
-                            text='<%# Eval("Descripcion") %>' />
+                            text='<%# Eval("Nombre") %>' />
                       </td>
                       <td bgcolor="#CCFFCC">
                           <asp:Label runat="server" ID="Label2" 
-                              text='<%# Eval("UsuarioID") %>' />
+                              text='<%# Eval("id") %>' />
                       </td>
                   </tr>
-              </table>
-              <asp:Repeater DataSource="<%#Container.DataItem%>" runat="server">
-                  <ItemTemplate>
-                      <table>
-                          <tr>
-                              <td>
-                                  nombre usuario
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>
-                                  comentario
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>
-                                  <table>
-                                      <tr>
-                                          <td>
-                                              fecha
-                                          </td>
-                                          <td>
-                                              puntuacion digamos
-                                          </td>
-                                      </tr>
-                                  </table>
-                              </td>
-                          </tr>
-                      </table>
-                  </ItemTemplate>
-              </asp:Repeater>
+              </table>              
           </ItemTemplate>
       </asp:Repeater>
 
