@@ -8,7 +8,7 @@ using RedSocialDataSQLServer;
 
 namespace RedSocialBusiness
 {
-    class SolicitudBO
+    public class SolicitudBO
     {
         private SolicitudDA solicitudDA;  
         public void Crear(UsuarioEntity usuariosolicita, UsuarioEntity usuario)

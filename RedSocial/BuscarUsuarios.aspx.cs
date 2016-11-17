@@ -30,6 +30,7 @@ public partial class Biografia : System.Web.UI.Page
     {
         if (e.CommandName == "Contactar")
         {
+            
             //SolicitudBO.Crear(SessionHelper.UsuarioAutenticado.id, e.CommandArgument);
         }
     }

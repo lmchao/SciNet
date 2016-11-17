@@ -22,7 +22,7 @@
                               text='<%# Eval("id") %>' />
                       </td>
                       <td>
-                          <asp:Button ID="btnContactar" runat="server" Text="Contactar" CommandName="Contactar" />
+                          <asp:Button ID="btnContactar" runat="server" Text="Contactar" CommandName="Contactar" CommandArgument='<%# Eval("id") %>' />
                       </td>
                   </tr>
               </table>              
