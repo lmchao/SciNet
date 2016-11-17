@@ -57,7 +57,7 @@ namespace RedSocialBusiness
         {
             try
             {
-                return SolicitudDA.BuscarSolicitudes(usuario, propios);
+                return SolicitudDA.BuscarSolicitudes(usuario);
             }
             catch (ExcepcionDA ex)
             {
