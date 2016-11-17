@@ -25,7 +25,8 @@ public partial class Biografia : System.Web.UI.Page
             rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado,true);
             rptGrupos.DataBind();
 
-            
+            rptSolicitudes.DataSource = SolicitudBO.Listar(SessionHelper.UsuarioAutenticado);
+            rptSolicitudes.DataBind();
 
             //rptPublicaciones.DataSource =
         }
@@ -98,5 +99,10 @@ public partial class Biografia : System.Web.UI.Page
     protected void btnBuscarUsuario_Click(object sender, EventArgs e)
     {
         Response.Redirect("BuscarUsuarios.aspx?id=" + txtBuscarUsuario.Text);
+    }
+
+    protected void rptSolicitudes_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+
     }
 }
