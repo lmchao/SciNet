@@ -51,11 +51,14 @@ namespace RedSocialBusiness
                 throw new ExcepcionBO("No se rechazar la solicitud.", ex);
             }
         }
-        public static List<SolicitudEntity> Listar(UsuarioEntity usuario, Boolean propios)
+        //public static List<SolicitudEntity> Listar(UsuarioEntity usuario, Boolean propios)
+        public static List<SolicitudEntity> Listar(UsuarioEntity usuario)
         {
             try
             {
-                return SolicitudDA.BuscarSolicitudes(usuario, propios);
+                //return SolicitudDA.BuscarSolicitudes(usuario, propios);
+                //COOOOOMIT
+                return SolicitudDA.BuscarSolicitudes(usuario);
             }
             catch (ExcepcionDA ex)
             {
