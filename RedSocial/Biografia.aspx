@@ -15,15 +15,27 @@
     <table style="width:100%;text-align:center;">
         <tr>
             <td style="background-color:red;">
-
+                
             </td>
         </tr>
         <tr>
             <td  style="background-color:beige">
                 <table>
                     <tr>
-                        <td style="width:10%;">
+                        <td style="width:20%;vertical-align:top;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="txtBuscarUsuario" runat="server" />
+                                        <asp:Button ID="btnBuscarUsuario" runat="server" Text="Buscar" OnClick="btnBuscarUsuario_Click" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
 
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                         <td style="width:70%;text-align:center;">
                             <table>

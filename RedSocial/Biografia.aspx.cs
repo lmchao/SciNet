@@ -94,4 +94,9 @@ public partial class Biografia : System.Web.UI.Page
             new PublicacionBO().Registrar(publicacion);
         }
     }
+
+    protected void btnBuscarUsuario_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("BuscarUsuarios.aspx?id=" + txtBuscarUsuario.Text);
+    }
 }
