@@ -29,6 +29,34 @@
                                         <asp:TextBox ID="txtBuscarUsuario" runat="server" />
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Button ID="btnBuscarUsuario" runat="server" CssClass="BotonCabecera" Text="Buscar" OnClick="btnBuscarUsuario_Click" />
+                                    
+                                        <asp:Repeater ID="rptSolicitudes" runat="server" OnItemCommand="rptSolicitudes_ItemCommand" >
+                                            <HeaderTemplate>
+                                              <table>
+                                                <tr>
+                                                    <th>Solicitud de Contacto</th>
+                                                    <th></th>
+                                                </tr>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <table>
+                                                    <tr>
+                                                        <td bgcolor="#CCFFCC">
+                                                        <asp:Label runat="server" ID="Label1" 
+                                                            text='<%# Eval("usuarioIDSolicita") %>' />
+                                                        </td>
+                                                        <td bgcolor="#CCFFCC" style="display:none;">
+                                                            <asp:Label runat="server" ID="Label2" 
+                                                                text='<%# Eval("id") %>' />
+                                                        </td>
+                                                        <td>
+                                                            <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CommandName="Aceptar" CommandArgument='<%# Eval("id") %>' />
+                                                            <asp:Button ID="btnRechazar" runat="server" Text="Rechazar" CommandName="Rechazar" CommandArgument='<%# Eval("id") %>' />
+                                                        </td>
+                                                    </tr>
+                                                </table>              
+                                            </ItemTemplate>
+                                        </asp:Repeater>
                                     </td>
                                 </tr>
                                 <tr>
@@ -232,6 +260,7 @@
                                                 </table>
                                             </FooterTemplate>
                                         </asp:Repeater>
+
                                     </td>
                                 </tr>
                             </table>
