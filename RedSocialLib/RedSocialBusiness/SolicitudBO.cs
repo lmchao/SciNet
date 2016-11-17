@@ -8,65 +8,59 @@ using RedSocialDataSQLServer;
 
 namespace RedSocialBusiness
 {
-    public class SolicitudBO
+    class SolicitudBO
     {
-        private SolicitudDA daSolicitud;
-
-        public SolicitudBO()
+        private SolicitudDA solicitudDA;  
+        public void Crear(UsuarioEntity usuariosolicita, UsuarioEntity usuario)
         {
-            daSolicitud = new SolicitudDA();
+            try
+            {
+                SolicitudEntity solicitud = new SolicitudEntity();
+                solicitud.usuarioID = usuario.id;
+                solicitud.usuarioIDSolicita = usuariosolicita.id;
+                solicitud.fechaAlta = DateTime.Now;
+                solicitud.fechaActualizacion = DateTime.Now;
+                solicitud.solicitudEstadoID = 1;
+                solicitud.ValidarDatos();
+                solicitudDA.Insertar(solicitud);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se pudo realizar la solicitud de contacto.", ex);
+            }
         }
-
+        public void Aceptar(SolicitudEntity solicitud)
+        {
+            try
+            {
+                solicitudDA.Actualizar(solicitud, 2);
+            }
+            catch(ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se aceptar la solicitud.", ex);
+            }
+        }
+        public void Rechazar(SolicitudEntity solicitud)
+        {
+            try
+            {
+                solicitudDA.Actualizar(solicitud, 3);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se rechazar la solicitud.", ex);
+            }
+        }
         public static List<SolicitudEntity> Listar(UsuarioEntity usuario, Boolean propios)
         {
             try
-            {                
-                return SolicitudDA.BuscarSolicitudes(usuario,propios);                
+            {
+                return SolicitudDA.BuscarSolicitudes(usuario, propios);
             }
             catch (ExcepcionDA ex)
             {
                 throw new ExcepcionBO("No se pudo realizar la busqueda de solicitudes.", ex);
             }
         }
-
-        public void Registrar(SolicitudEntity solicitud)
-        {
-            try
-            {
-                solicitud.ValidarDatos();
-
-                daSolicitud.Insertar(solicitud);
-            }
-            catch (ExcepcionDA ex)
-            {
-                throw new ExcepcionBO("No se pudo realizar la registración de la solicitud.", ex);
-            }
-        }
-
-        //public void save(UsuarioEntity usuario)
-        //{
-        //    try
-        //    {
-        //        daUsuario.Actualizar(usuario);
-        //    }
-        //    catch (ExcepcionDA ex)
-        //    {
-        //        throw new ExcepcionBO("No se pudieron guardar los cambios.", ex);
-        //    }
-
-        //}
-
-        //public void ActualizarFoto(int id, string nombreArchivo, byte[] archivoFoto)
-        //{
-        //    try
-        //    {
-        //        daUsuario.ActualizarFoto(id, nombreArchivo, archivoFoto);
-        //    }
-        //    catch (ExcepcionDA ex)
-        //    {
-        //        throw new ExcepcionBO("No se pudo actualizar la foto.", ex);
-        //    }
-        //}
     }
 }
-
