@@ -14,24 +14,22 @@ public partial class Biografia : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (SessionHelper.UsuarioAutenticado != null)
+        if (!IsPostBack)
         {
-            List<PublicacionEntity> listPublicaciones = PublicacionBO.Listar(SessionHelper.UsuarioAutenticado);
-            
+            if (SessionHelper.UsuarioAutenticado != null)
+            {
+                List<PublicacionEntity> listPublicaciones = PublicacionBO.Listar(SessionHelper.UsuarioAutenticado);
 
-            rptPublicaciones.DataSource = listPublicaciones ;
-            rptPublicaciones.DataBind();
 
-            rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado,true);
-            rptGrupos.DataBind();
+                rptPublicaciones.DataSource = listPublicaciones;
+                rptPublicaciones.DataBind();
 
-            
-
-            //rptPublicaciones.DataSource =
+                rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado, true);
+                rptGrupos.DataBind();
+            }
         }
     }
-
-
+    
     protected void rptPublicaciones_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -98,5 +96,21 @@ public partial class Biografia : System.Web.UI.Page
     protected void btnBuscarUsuario_Click(object sender, EventArgs e)
     {
         Response.Redirect("BuscarUsuarios.aspx?id=" + txtBuscarUsuario.Text);
+    }
+
+    protected void rptPublicaciones_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "Comentar")
+        {
+            TextBox txtComentar = (TextBox)e.Item.FindControl("txtComentar");
+            TextBox txtComentar = (TextBox)e.Item.FindControl("lblComPuntos");
+            int calificacion = Convert.ToInt32( ((DropDownList)e.Item.FindControl("ddlCalificacion")).SelectedValue);
+
+            ComentarioEntity com = new ComentarioEntity();
+            com.calificacion = calificacion;
+            com.texto = com;
+
+            new ComentarioBO().Registrar()
+        }
     }
 }

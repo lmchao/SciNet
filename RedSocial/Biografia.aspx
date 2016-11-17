@@ -74,7 +74,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <asp:Repeater ID="rptPublicaciones" runat="server" OnItemDataBound="rptPublicaciones_ItemDataBound" >
+                            <asp:Repeater ID="rptPublicaciones" runat="server" OnItemDataBound="rptPublicaciones_ItemDataBound" OnItemCommand="rptPublicaciones_ItemCommand" >
                                 <ItemTemplate>
                                   <table style="margin: 10px 10px 10px 10px;border: 1px solid blue; width:98%;">
                                       <tr>
@@ -164,6 +164,34 @@
                                                       </table>
                                                   </ItemTemplate>
                                               </asp:Repeater>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <table style="width:100%;">
+                                                <tr>
+                                                    <td>
+                                                        <asp:TextBox ID="txtComentar" runat="server" TextMode="MultiLine" Width="600px" Height="40px"   />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlCalificacion" runat="server">
+                                                            <asp:ListItem>1</asp:ListItem>
+                                                            <asp:ListItem>2</asp:ListItem>
+                                                            <asp:ListItem>3</asp:ListItem>
+                                                            <asp:ListItem>4</asp:ListItem>
+                                                            <asp:ListItem>5</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <asp:Button ID="btnComentar" runat="server" Text="COMENTAR" CssClass="BotonRegistracion" OnClick="btnPublicar_Click" CommandName="Comentar" />
+                                                    </td>
+                                                </tr>
+                                            </table>
                                           </td>
                                       </tr>
                                   </table>
