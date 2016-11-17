@@ -54,7 +54,7 @@
                                                             <asp:Button ID="btnRechazar" runat="server" Text="Rechazar" CommandName="Rechazar" CommandArgument='<%# Eval("id") %>' />
                                                         </td>
                                                     </tr>
-                                                </table>              
+                                                </table>
                                             </ItemTemplate>
                                         </asp:Repeater>
                                     </td>

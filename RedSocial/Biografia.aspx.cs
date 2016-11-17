@@ -24,13 +24,14 @@ public partial class Biografia : System.Web.UI.Page
                 rptPublicaciones.DataSource = listPublicaciones;
                 rptPublicaciones.DataBind();
 
-            rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado,true);
-            rptGrupos.DataBind();
+                rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado, true);
+                rptGrupos.DataBind();
 
-            rptSolicitudes.DataSource = SolicitudBO.Listar(SessionHelper.UsuarioAutenticado);
-            rptSolicitudes.DataBind();
+                rptSolicitudes.DataSource = SolicitudBO.Listar(SessionHelper.UsuarioAutenticado);
+                rptSolicitudes.DataBind();
 
-            //rptPublicaciones.DataSource =
+                //rptPublicaciones.DataSource =
+            }
         }
     }
 
@@ -49,12 +50,12 @@ public partial class Biografia : System.Web.UI.Page
             Label imgPubRanking = (Label)e.Item.FindControl("imgPubRanking");
 
             Repeater rptComentarios = (Repeater)e.Item.FindControl("rptComentarios");
-            
-            lblNombreUsuario.Text = publicacion.usuarioID.ToString() ;
+
+            lblNombreUsuario.Text = publicacion.usuarioID.ToString();
             lblPubMensaje.Text = publicacion.descripcion;
             if (publicacion.imagen != null)
             {
-                imgPubImagen.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(publicacion.imagen, 0, publicacion.imagen.Length); ;                
+                imgPubImagen.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(publicacion.imagen, 0, publicacion.imagen.Length); ;
             }
             lblPubFecha.Text = publicacion.actualizacion.ToString();
 
@@ -101,5 +102,36 @@ public partial class Biografia : System.Web.UI.Page
     protected void btnBuscarUsuario_Click(object sender, EventArgs e)
     {
         Response.Redirect("BuscarUsuarios.aspx?id=" + txtBuscarUsuario.Text);
+    }
+
+    protected void rptPublicaciones_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "Comentar")
+        {
+            string textoComentario = ((TextBox)e.Item.FindControl("txtComentar")).Text;
+            int calificacion = Convert.ToInt32(((DropDownList)e.Item.FindControl("ddlCalificacion")).SelectedValue);
+
+            if (!string.IsNullOrWhiteSpace(textoComentario))
+            {
+                ComentarioEntity comentario = new ComentarioEntity();
+                comentario.calificacion = calificacion;
+                comentario.texto = textoComentario;
+
+                new ComentarioBO().Registrar(comentario);
+            }
+        }
+    }
+
+
+    protected void rptSolicitudes_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "Aceptar")
+        {
+
+        }
+        else if (e.CommandName == "Rechazar")
+        {
+
+        }
     }
 }
