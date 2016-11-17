@@ -11,12 +11,13 @@ namespace RedSocialBusiness
     public class SolicitudBO
     {
         private SolicitudDA solicitudDA;  
-        public void Crear(UsuarioEntity usuariosolicita, UsuarioEntity usuario)
+        public void Crear(UsuarioEntity usuariosolicita, int usuarioID)
         {
             try
             {
+                UsuarioBO usuario = new UsuarioBO();
                 SolicitudEntity solicitud = new SolicitudEntity();
-                solicitud.usuarioID = usuario.id;
+                solicitud.usuarioID = usuarioID;
                 solicitud.usuarioIDSolicita = usuariosolicita.id;
                 solicitud.fechaAlta = DateTime.Now;
                 solicitud.fechaActualizacion = DateTime.Now;
