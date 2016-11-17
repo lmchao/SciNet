@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SolicitudBO.cs" />
     <Compile Include="Excepciones\AutenticacionExcepcionBO.cs" />
     <Compile Include="Excepciones\GrupoExisteExcepcionBO.cs" />
     <Compile Include="GrupoUsuarioBO.cs" />
