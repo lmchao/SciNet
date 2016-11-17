@@ -235,6 +235,7 @@ namespace RedSocialDataSQLServer
 
                 if (nombre != "")
                 {
+                    nombre.Replace(" ", "%");
                     query += " AND UsuarioNombre LIKE '%" + nombre + "%' ORDER BY UsuarioNombre";
                 }
 
