@@ -64,41 +64,31 @@ namespace RedSocialDataSQLServer
         }
 
 
-        //public void Actualizar(int id, string nombreArchivo, byte[] archivoFoto)
-        //{
-        //    try
-        //    {
-        //        FileInfo infoArchivo = new FileInfo(nombreArchivo);
+        public void Actualizar(SolicitudEntity solicitud, int estadoID)
+        {
+            try
+            {
+                string query = "UPDATE SOLICITUD SET "
+                               + "SolicitudEstadoID = @ESTADO "                               
+                               + "WHERE SolicitudID = @ID";
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@ID", solicitud.id.ToString());
+                        comando.Parameters.AddWithValue("@ESTADO", solicitud.solicitudEstadoID.ToString());
 
-        //        string rutaFotos = ConfigurationManager.AppSettings["RutaFotos"];
-        //        string nuevoNombreArchivo = id.ToString() + infoArchivo.Extension;
+                        comando.ExecuteNonQuery();
+                    }
 
-        //        using (FileStream archivo = File.Create(rutaFotos + nuevoNombreArchivo))
-        //        {
-        //            archivo.Write(archivoFoto, 0, archivoFoto.Length);
-        //            archivo.Close();
-        //        }
+                }
 
-        //        using (SqlConnection conexion = ConexionDA.ObtenerConexion())
-        //        {
-        //            using (SqlCommand comando = new SqlCommand("UsuarioActualizarFoto", conexion))
-        //            {
-        //                comando.CommandType = CommandType.StoredProcedure;
-        //                SqlCommandBuilder.DeriveParameters(comando);
-
-        //                comando.Parameters["@UsuarioID"].Value = id;
-        //                comando.Parameters["@UsuarioFoto"].Value = nuevoNombreArchivo;
-        //                comando.ExecuteNonQuery();
-        //            }
-
-        //            conexion.Close();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new ExcepcionDA("Se produjo un error al actualizar la foto.", ex);
-        //    }
-        //}
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al actualizar la solicitud.", ex);
+            }
+        }
 
         public SolicitudEntity BuscarSolicitud(int usuarioID)
         {
@@ -170,22 +160,16 @@ namespace RedSocialDataSQLServer
             }
         }
 
-        public static List<SolicitudEntity> BuscarSolicitudes(UsuarioEntity usuario, Boolean propios)
+        public static List<SolicitudEntity> BuscarSolicitudes(UsuarioEntity usuario)
         {
             try
             {
-                string query = "SELECT * FROM Solicitud WHERE ";
+                string query = "SELECT * FROM Solicitud WHERE UsuarioID = @Parameter_ID AND SolicitudEstadoID = 1";
                 string parameterID = "";
                 List<SolicitudEntity> solicitudes = new List<SolicitudEntity>();
 
-                parameterID = usuario.id.ToString();
-
-                if (propios) {                    
-                    query += "UsuarioIDSolicita = @Parameter_ID";
-                }else{
-                    query += "UsuarioID = @Parameter_ID";
-                }
-
+                parameterID = usuario.id.ToString();                
+                
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))
@@ -216,7 +200,7 @@ namespace RedSocialDataSQLServer
             }
             catch (Exception ex)
             {
-                throw new ExcepcionDA("Se produjo un error al buscar la lista de publicaciones.", ex);
+                throw new ExcepcionDA("Se produjo un error al buscar la lista de solicitudes.", ex);
             }
         }
         #endregion Métodos Públicos
