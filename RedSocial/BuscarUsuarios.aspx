@@ -6,25 +6,16 @@
             background-color:red;
         }
     </style>
-   <div id="main">
-   <div id="left">Left</div>
-   <div id="content">Center</div>
-   <div id="right">Right</div>
-   <div style="clear:both"></div>
-   <div id="footer">Footer</div>
-</div> 
-
-      <a href="AltaGrupo.aspx">
-      <asp:Label runat="server" ID="nuevoGrupo" text="Nuevo Grupo" CssClass="EtiquetaNuevoGrupo" ></asp:Label>
-      </a>
-     
+      
+      <asp:Label runat="server" ID="lblListaContactos" text="Seleccione un nuevo contacto" CssClass="EtiquetaListaUsuarios" ></asp:Label>
+        
       <asp:Repeater ID="rptUsuarios" runat="server" >
           <ItemTemplate>
               <table>
                   <tr>
                       <td bgcolor="#CCFFCC">
                         <asp:Label runat="server" ID="Label1" 
-                            text='<%# Eval("Nombre") %>' />
+                            text='<%# Eval("nombre") %>' />
                       </td>
                       <td bgcolor="#CCFFCC">
                           <asp:Label runat="server" ID="Label2" 
@@ -35,31 +26,7 @@
           </ItemTemplate>
       </asp:Repeater>
 
-    <asp:Repeater ID="rptGrupos" runat="server" >          
-          <HeaderTemplate>
-              <table>
-              <tr>
-                 <th>Name</th>
-                 <th>Description</th>
-              </tr>
-          </HeaderTemplate>
-
-          <ItemTemplate>
-          <tr>
-              <td bgcolor="#CCFFCC">
-                <asp:Label runat="server" ID="Label1" 
-                    text='<%# Eval("nombre") %>' />
-              </td>
-              <td bgcolor="#CCFFCC">
-                  <asp:Label runat="server" ID="Label2" 
-                      text='<%# Eval("descripcion") %>' />
-              </td>
-          </tr>
-          </ItemTemplate>
-          <FooterTemplate>
-              </table>
-          </FooterTemplate>
-      </asp:Repeater>
+    
 <%--
       <asp:SqlDataSource 
           ConnectionString=
