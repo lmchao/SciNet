@@ -23,25 +23,44 @@
                 <table>
                     <tr>
                         <td style="width:20%;vertical-align:top;">
-                            <table>
+                            <table style="text-align:center">
                                 <tr>
                                     <td>
                                         <asp:TextBox ID="txtBuscarUsuario" runat="server" />
-                                        <asp:Button ID="btnBuscarUsuario" runat="server" Text="Buscar" OnClick="btnBuscarUsuario_Click" />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <asp:Button ID="btnBuscarUsuario" runat="server" CssClass="BotonCabecera" Text="Buscar" OnClick="btnBuscarUsuario_Click" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-
+                                        <asp:Repeater ID="rptContactos" runat="server">
+                                            <HeaderTemplate>
+                                              <table>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                </tr>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <td bgcolor="#CCFFCC">
+                                                        <asp:Label runat="server" ID="Label1" 
+                                                            text='<%# Eval("nombre") %>' />
+                                                    </td>
+                                                </tr>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </table>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
                                     </td>
                                 </tr>
                             </table>
                         </td>
-                        <td style="width:70%;text-align:center;">
-                            <table>
+                        <td style="width:60%;text-align:center;">
+                            <table style="width:100%;">
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="txtPublicar" runat="server" TextMode="MultiLine" Width="400px" Height="50px"  />
+                                        <asp:TextBox ID="txtPublicar" runat="server" TextMode="MultiLine" Width="700px" Height="50px"   />
                                     </td>
                                 </tr>
                                 <tr>
@@ -56,8 +75,8 @@
                                 </tr>
                             </table>
                             <asp:Repeater ID="rptPublicaciones" runat="server" OnItemDataBound="rptPublicaciones_ItemDataBound" >
-                              <ItemTemplate>
-                                  <table style="margin: 10px 10px 10px 10px;border: 1px solid blue; width:90%;">
+                                <ItemTemplate>
+                                  <table style="margin: 10px 10px 10px 10px;border: 1px solid blue; width:98%;">
                                       <tr>
                                           <td style="height:20px;">
                                               <table style="width:100%;">
@@ -152,31 +171,43 @@
                           </asp:Repeater>
                         </td>
                         <td style="width:20%; vertical-align:top;">
-                            <asp:Repeater ID="rptGrupos" runat="server" >          
-                              <HeaderTemplate>
-                                  <table>
-                                  <tr>
-                                     <th>Name</th>
-                                     <th>Description</th>
-                                  </tr>
-                              </HeaderTemplate>
+                            <table style="width:100%;text-align:center;">
+                                <tr>
+                                    <td>
+                                        <input type="button" value="Nuevo Grupo" class="BotonCabecera" onClick="javascript: window.location = 'AltaGrupo.aspx';" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Repeater ID="rptGrupos" runat="server" >          
+                                            <HeaderTemplate>
+                                              <table>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </HeaderTemplate>
 
-                              <ItemTemplate>
-                              <tr>
-                                  <td bgcolor="#CCFFCC">
-                                    <asp:Label runat="server" ID="Label1" 
-                                        text='<%# Eval("nombre") %>' />
-                                  </td>
-                                  <td bgcolor="#CCFFCC">
-                                      <asp:Label runat="server" ID="Label2" 
-                                          text='<%# Eval("descripcion") %>' />
-                                  </td>
-                              </tr>
-                              </ItemTemplate>
-                              <FooterTemplate>
-                                  </table>
-                              </FooterTemplate>
-                          </asp:Repeater>
+                                            <ItemTemplate>
+                                            <tr>
+                                                <td bgcolor="#CCFFCC">
+                                                <asp:Label runat="server" ID="Label1" 
+                                                    text='<%# Eval("nombre") %>' />
+                                                </td>
+                                                <td bgcolor="#CCFFCC">
+                                                    <asp:Label runat="server" ID="Label2" 
+                                                        text='<%# Eval("descripcion") %>' />
+                                                </td>
+                                            </tr>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </table>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    </td>
+                                </tr>
+                            </table>
+                            
                         </td>
                         <td style="width:10%;">
 
@@ -191,31 +222,6 @@
             </td>
         </tr>
     </table>
-    
-
-      <a href="AltaGrupo.aspx">
-      <asp:Label runat="server" ID="nuevoGrupo" text="Nuevo Grupo" CssClass="EtiquetaNuevoGrupo" ></asp:Label>
-      </a>
-     
-      
-
-    
-<%--
-      <asp:SqlDataSource 
-          ConnectionString=
-              "<%$ ConnectionStrings:ConexionRedSocial %>"
-          ID="SqlDataSource_Publicaciones" runat="server" 
-          SelectCommand="SELECT TOP (15) [PublicacionID]
-      ,[UsuarioID]
-      ,[GrupoID]
-      ,[Descripcion]
-      ,[PublicacionActualizacion]
-      ,[PublicacionCalificacion]
-      ,[PublicacionImagen]
-  FROM [RedSocialORT22AGrupo02].[dbo].[Publicacion]">
-      </asp:SqlDataSource>
- --%>
-    </div>
-    </asp:Content>
+</asp:Content>
     
 
