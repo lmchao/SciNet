@@ -305,8 +305,12 @@ namespace RedSocialDataSQLServer
         {
             try
             {
-                string query = "SELECT * FROM Usuario AS U WHERE NOT EXISTS (SELECT UsuarioID FROM Solicitud WHERE UsuarioIDSolicita = ";
-
+                string query = "SELECT u1.* from usuario as U ";
+                query += "inner join Amigo as a on(u.UsuarioID = a.UsuarioID or u.UsuarioID = a.UsuarioIDAmigo) ";
+                query += "inner join usuario as u1 on(u1.UsuarioID = a.UsuarioID or u1.UsuarioID = a.UsuarioIDAmigo) ";
+                query += "where u.UsuarioID = ";
+                query += usuario.id.ToString();
+                query += " and u1.UsuarioID <> ";
                 query += usuario.id.ToString();
 
                 List<UsuarioEntity> usuarios = new List<UsuarioEntity>();

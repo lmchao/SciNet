@@ -80,7 +80,8 @@ namespace RedSocialDataSQLServer
                     parameterID = ((UsuarioEntity)filtro).id.ToString();
                     query += "p.UsuarioID = @Parameter_ID";
                 }
-                query += "ORDER BY C.ComentarioFechaActualizacion DESC";
+                query += " ORDER BY p.PublicacionActualizacion DESC";
+                query += " , C.ComentarioFechaActualizacion ASC";
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))

@@ -30,6 +30,9 @@ public partial class Biografia : System.Web.UI.Page
                 rptSolicitudes.DataSource = SolicitudBO.Listar(SessionHelper.UsuarioAutenticado);
                 rptSolicitudes.DataBind();
 
+                rptContactos.DataSource = UsuarioBO.BuscarUsuariosAmigos(SessionHelper.UsuarioAutenticado);
+                rptContactos.DataBind();
+
                 //rptPublicaciones.DataSource =
             }
         }
