@@ -107,6 +107,7 @@
                                   <table style="margin: 10px 10px 10px 10px;border: 1px solid blue; width:98%;">
                                       <tr>
                                           <td style="height:20px;">
+                                              <asp:HiddenField ID="lblPublicacionId" runat="server" />
                                               <table style="width:100%;">
                                                   <tr>
                                                       <td style="width:20%;">

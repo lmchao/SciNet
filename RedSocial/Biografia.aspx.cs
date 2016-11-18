@@ -42,6 +42,7 @@ public partial class Biografia : System.Web.UI.Page
         {
             PublicacionEntity publicacion = (PublicacionEntity)e.Item.DataItem;
 
+            HiddenField lblPublicacionId = (HiddenField)e.Item.FindControl("lblPublicacionId");
             Image imgUsuarioPost = (Image)e.Item.FindControl("imgPubUsuarioPost");
             Label lblNombreUsuario = (Label)e.Item.FindControl("lblPubNombreUsuario");
             Label lblPubMensaje = (Label)e.Item.FindControl("lblPubMensaje");
@@ -51,6 +52,7 @@ public partial class Biografia : System.Web.UI.Page
 
             Repeater rptComentarios = (Repeater)e.Item.FindControl("rptComentarios");
 
+            lblPublicacionId.Value = publicacion.id.ToString();
             lblNombreUsuario.Text = publicacion.usuarioID.ToString();
             lblPubMensaje.Text = publicacion.descripcion;
             if (publicacion.imagen != null)
@@ -109,13 +111,19 @@ public partial class Biografia : System.Web.UI.Page
         if (e.CommandName == "Comentar")
         {
             string textoComentario = ((TextBox)e.Item.FindControl("txtComentar")).Text;
-            int calificacion = Convert.ToInt32(((DropDownList)e.Item.FindControl("ddlCalificacion")).SelectedValue);
-
+            
             if (!string.IsNullOrWhiteSpace(textoComentario))
             {
+                int calificacion = Convert.ToInt32(((DropDownList)e.Item.FindControl("ddlCalificacion")).SelectedValue);
+
+                int publicacionId = Convert.ToInt32( ((HiddenField)e.Item.FindControl("lblPublicacionId")).Value);
+
                 ComentarioEntity comentario = new ComentarioEntity();
                 comentario.calificacion = calificacion;
                 comentario.texto = textoComentario;
+
+                comentario.usuarioID = SessionHelper.UsuarioAutenticado.id;
+                comentario.publicacionID = publicacionId;
 
                 new ComentarioBO().Registrar(comentario);
             }
