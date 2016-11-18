@@ -76,7 +76,7 @@ namespace RedSocialDataSQLServer
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         comando.Parameters.AddWithValue("@ID", solicitud.id.ToString());
-                        comando.Parameters.AddWithValue("@ESTADO", solicitud.solicitudEstadoID.ToString());
+                        comando.Parameters.AddWithValue("@ESTADO", estadoID.ToString());
 
                         comando.ExecuteNonQuery();
                     }

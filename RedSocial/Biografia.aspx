@@ -23,13 +23,16 @@
                 <table>
                     <tr>
                         <td style="width:20%;vertical-align:top;">
-                            <table style="text-align:center">
+                            <table style="text-align:center;vertical-align:top">
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="txtBuscarUsuario" runat="server" />
+                                        <asp:TextBox ID="txtBuscarUsuario" runat="server" Width="100px" />
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Button ID="btnBuscarUsuario" runat="server" CssClass="BotonCabecera" Text="Buscar" OnClick="btnBuscarUsuario_Click" />
-                                    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
                                         <asp:Repeater ID="rptSolicitudes" runat="server" OnItemCommand="rptSolicitudes_ItemCommand" >
                                             <HeaderTemplate>
                                               <table>
@@ -74,6 +77,9 @@
                                                         <asp:Label runat="server" ID="Label1" 
                                                             text='<%# Eval("nombre") %>' />
                                                     </td>
+                                                    <%--<td>
+                                                        <asp:Button ID="btnVerContacto" runat="server" CommandName="VerContacto" />
+                                                    </td>--%>
                                                 </tr>
                                             </ItemTemplate>
                                             <FooterTemplate>

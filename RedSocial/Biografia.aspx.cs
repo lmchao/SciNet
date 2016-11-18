@@ -140,13 +140,16 @@ public partial class Biografia : System.Web.UI.Page
 
     protected void rptSolicitudes_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
+        SolicitudEntity solicitud = new SolicitudEntity();
+        solicitud.id = Convert.ToInt32(e.CommandArgument);
+
         if (e.CommandName == "Aceptar")
         {
-            new SolicitudBO().Aceptar((SolicitudEntity)e.Item.DataItem);
+            new SolicitudBO().Aceptar(solicitud);
         }
         else if (e.CommandName == "Rechazar")
         {
-            new SolicitudBO().Rechazar((SolicitudEntity)e.Item.DataItem);
+            new SolicitudBO().Rechazar(solicitud);
         }
     }
 }

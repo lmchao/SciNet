@@ -10,7 +10,12 @@ namespace RedSocialBusiness
 {
     public class SolicitudBO
     {
-        private SolicitudDA solicitudDA;  
+        private SolicitudDA solicitudDA;
+
+        public SolicitudBO()
+        {
+            solicitudDA = new SolicitudDA();
+        }
         public void Crear(UsuarioEntity usuariosolicita, int usuarioID)
         {
              solicitudDA = new SolicitudDA(); 
