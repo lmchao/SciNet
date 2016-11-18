@@ -31,6 +31,8 @@ public partial class Biografia : System.Web.UI.Page
         if (e.CommandName == "Contactar")
         {
             new SolicitudBO().Crear(SessionHelper.UsuarioAutenticado, Convert.ToInt32(e.CommandArgument));
+
+            Response.Redirect(Request.RawUrl);
         }
     }
 }
