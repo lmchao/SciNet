@@ -98,6 +98,8 @@ public partial class Biografia : System.Web.UI.Page
             publicacion.actualizacion = DateTime.Now;
 
             new PublicacionBO().Registrar(publicacion);
+
+            Response.Redirect(Request.RawUrl);
         }
     }
 
@@ -126,6 +128,8 @@ public partial class Biografia : System.Web.UI.Page
                 comentario.publicacionID = publicacionId;
 
                 new ComentarioBO().Registrar(comentario);
+
+                Response.Redirect(Request.RawUrl);
             }
         }
     }
