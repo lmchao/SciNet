@@ -13,6 +13,7 @@ namespace RedSocialBusiness
         private SolicitudDA solicitudDA;  
         public void Crear(UsuarioEntity usuariosolicita, int usuarioID)
         {
+             solicitudDA = new SolicitudDA(); 
             try
             {
                 UsuarioBO usuario = new UsuarioBO();

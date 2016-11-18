@@ -89,5 +89,17 @@ namespace RedSocialBusiness
                 throw new ExcepcionBO("No se pudo realizar la busqueda de usuarios.", ex);
             }
         }
+
+        public static List<UsuarioEntity> BuscarUsuariosAmigos(UsuarioEntity usuario)
+        {
+            try
+            {
+                return UsuarioDA.BuscarUsuariosAmigos(usuario);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se pudo realizar la busqueda de usuarios.", ex);
+            }
+        }
     }
 }

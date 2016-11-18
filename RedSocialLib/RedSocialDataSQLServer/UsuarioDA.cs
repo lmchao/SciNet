@@ -300,6 +300,63 @@ namespace RedSocialDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al buscar la lista de usuarios.", ex);
             }
         }
+
+        public static List<UsuarioEntity> BuscarUsuariosAmigos(UsuarioEntity usuario)
+        {
+            try
+            {
+                string query = "SELECT * FROM Usuario AS U WHERE NOT EXISTS (SELECT UsuarioID FROM Solicitud WHERE UsuarioIDSolicita = ";
+
+                query += usuario.id.ToString();
+
+                List<UsuarioEntity> usuarios = new List<UsuarioEntity>();
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        //comando.Parameters.AddWithValue("@Parameter_ID", parameterID);
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            while (cursor != null && cursor.Read())
+                            {
+                                UsuarioEntity usuarioAux = new UsuarioEntity();
+
+                                usuarioAux.id = cursor.GetInt32(cursor.GetOrdinal("UsuarioID"));
+                                usuarioAux.Nombre = cursor.GetString(cursor.GetOrdinal("UsuarioNombre"));
+                                usuarioAux.Apellido = cursor.GetString(cursor.GetOrdinal("UsuarioApellido"));
+                                usuarioAux.Email = cursor.GetString(cursor.GetOrdinal("UsuarioEmail"));
+                                usuarioAux.Password = cursor.GetString(cursor.GetOrdinal("UsuarioPassword"));
+                                usuarioAux.FechaNacimiento = cursor.GetDateTime(cursor.GetOrdinal("UsuarioFechaNacimiento"));
+                                usuarioAux.Sexo = cursor.GetString(cursor.GetOrdinal("UsuarioSexo"))[0];
+
+                                if (!cursor.IsDBNull(cursor.GetOrdinal("UsuarioFoto")))
+                                    usuarioAux.Foto = cursor.GetString(cursor.GetOrdinal("UsuarioFoto"));
+
+                                if (!cursor.IsDBNull(cursor.GetOrdinal("UsuarioFotoActual")))
+                                    usuarioAux.FotoActual = (byte[])cursor["UsuarioFotoActual"];
+
+                                usuarioAux.FechaRegistracion = cursor.GetDateTime(cursor.GetOrdinal("UsuarioFechaRegistracion"));
+
+                                if (!cursor.IsDBNull(cursor.GetOrdinal("UsuarioFechaActualizacion")))
+                                    usuarioAux.FechaActualizacion = cursor.GetDateTime(cursor.GetOrdinal("UsuarioFechaActualizacion"));
+                                usuarios.Add(usuarioAux);
+                            }
+
+                            cursor.Close();
+                        }
+                    }
+
+                    conexion.Close();
+                }
+
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar la lista de usuarios.", ex);
+            }
+        }
         #endregion Métodos Públicos
     }
 }

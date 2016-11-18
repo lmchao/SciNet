@@ -80,7 +80,7 @@ namespace RedSocialDataSQLServer
                     parameterID = ((UsuarioEntity)filtro).id.ToString();
                     query += "p.UsuarioID = @Parameter_ID";
                 }
-
+                query += "ORDER BY C.ComentarioFechaActualizacion DESC";
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))
@@ -91,6 +91,8 @@ namespace RedSocialDataSQLServer
                             int codant = 0;
                             PublicacionEntity publicacion = new PublicacionEntity();
                             publicacion.listaComentarios = new List<ComentarioEntity>();
+                            int sumaCalificacion = 0;
+                            int cantidad = 0;
                             while (cursor != null && cursor.Read())
                             {
                                 int pubID = (int)cursor["PublicacionID"];
@@ -122,11 +124,14 @@ namespace RedSocialDataSQLServer
                                     comentario.texto = cursor["ComentarioTexto"].ToString();
                                     comentario.calificacion = (int)cursor["ComentarioCalificacion"];
                                     comentario.fechaActualizacion = (DateTime)cursor["ComentarioFechaActualizacion"];
-
+                                    sumaCalificacion += comentario.calificacion;
+                                    cantidad++;
                                     publicacion.listaComentarios.Add(comentario);
                                 }
                                     
                             }
+                            if (cantidad != 0) 
+                                publicacion.calificacion = sumaCalificacion / cantidad;
                             listaPublicaciones.Add(publicacion);
 
                             cursor.Close();
