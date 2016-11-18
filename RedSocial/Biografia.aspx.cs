@@ -151,5 +151,7 @@ public partial class Biografia : System.Web.UI.Page
         {
             new SolicitudBO().Rechazar(solicitud);
         }
+
+        Response.Redirect(Request.RawUrl);
     }
 }
