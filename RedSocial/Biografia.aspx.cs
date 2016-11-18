@@ -139,11 +139,11 @@ public partial class Biografia : System.Web.UI.Page
     {
         if (e.CommandName == "Aceptar")
         {
-
+            new SolicitudBO().Aceptar((SolicitudEntity)e.Item.DataItem);
         }
         else if (e.CommandName == "Rechazar")
         {
-
+            new SolicitudBO().Rechazar((SolicitudEntity)e.Item.DataItem);
         }
     }
 }
