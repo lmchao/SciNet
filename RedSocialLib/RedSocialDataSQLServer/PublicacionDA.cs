@@ -67,21 +67,49 @@ namespace RedSocialDataSQLServer
         {
             try
             {
-                string query = "SELECT * FROM Publicacion p left join Comentario c on c.PublicacionID = p.PublicacionID WHERE ";
-                string parameterID = "";
+                string query = @"
+SELECT distinct 
+pub.* , 
+com.* ,       
+uc.UsuarioNombre + ' ' + uc.UsuarioApellido usuariocomentario, 
+up.UsuarioNombre + ' ' + up.UsuarioApellido usuariopublicacion, 
+yo.usuarioid   
+FROM Publicacion pub     
+left join Comentario com on com.PublicacionID = pub.PublicacionID 
+left join usuario up on pub.UsuarioID = up.UsuarioID    
+inner join usuario uc on com.usuarioid = uc.usuarioid
+left join amigo am on pub.UsuarioID = am.UsuarioID or pub.UsuarioID = am.UsuarioIDAmigo
+left join usuario yo on yo.UsuarioID = am.UsuarioID or yo.UsuarioID = am.UsuarioIDAmigo and pub.UsuarioID <> yo.UsuarioID
+left join GrupoUsuario gu on pub.UsuarioID = gu.UsuarioID      
+ 
+WHERE yo.UsuarioID = @Parameter_ID 
+or pub.UsuarioID = @Parameter_ID
+--or pub.grupoid = @grupo_id
+ORDER BY pub.PublicacionActualizacion DESC , Com.ComentarioFechaActualizacion ASC  ;  
+
+";
+
+                
+                
                 List<PublicacionEntity> listaPublicaciones = new List<PublicacionEntity>();
+                string parameterID = "";
+                /*
+                
                 if (filtro.GetType().Name == "GrupoEntity")
                 {
                     parameterID = ((GrupoEntity)filtro).id.ToString();
-                    query += "p.GrupoID = @Parameter_ID";
+                    query += "g.GrupoID = @Parameter_ID";
                 }
+                */
                 if (filtro.GetType().Name == "UsuarioEntity")
                 {
                     parameterID = ((UsuarioEntity)filtro).id.ToString();
-                    query += "p.UsuarioID = @Parameter_ID";
+                    //query += "yo.UsuarioID = @Parameter_ID";
                 }
-                query += " ORDER BY p.PublicacionActualizacion DESC";
-                query += " , C.ComentarioFechaActualizacion ASC";
+                
+                //query += " ORDER BY p.PublicacionActualizacion DESC";
+                //query += " , C.ComentarioFechaActualizacion ASC";
+                
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))
@@ -101,7 +129,12 @@ namespace RedSocialDataSQLServer
                                 {
                                     if (codant != 0)
                                     {                                        
+                                        
+                                        if (cantidad != 0)
+                                            publicacion.calificacion = sumaCalificacion / cantidad;
                                         listaPublicaciones.Add(publicacion);
+                                        sumaCalificacion = 0;
+                                        cantidad = 0;
                                         publicacion = new PublicacionEntity();
                                     }
                                     publicacion.id = pubID;
@@ -111,6 +144,7 @@ namespace RedSocialDataSQLServer
                                     publicacion.descripcion = (string)cursor["Descripcion"];
                                     publicacion.actualizacion = (DateTime)cursor["PublicacionActualizacion"];
                                     publicacion.calificacion = (int)cursor["PublicacionCalificacion"];
+                                    publicacion.nombreUsuario = (string)cursor["usuariopublicacion"];
                                     if (cursor["PublicacionImagen"] != DBNull.Value)
                                         publicacion.imagen = (byte[])cursor["PublicacionImagen"];
 
@@ -125,6 +159,7 @@ namespace RedSocialDataSQLServer
                                     comentario.texto = cursor["ComentarioTexto"].ToString();
                                     comentario.calificacion = (int)cursor["ComentarioCalificacion"];
                                     comentario.fechaActualizacion = (DateTime)cursor["ComentarioFechaActualizacion"];
+                                    comentario.nombreUsuario = (string)cursor["usuariocomentario"];
                                     sumaCalificacion += comentario.calificacion;
                                     cantidad++;
                                     publicacion.listaComentarios.Add(comentario);
@@ -134,7 +169,8 @@ namespace RedSocialDataSQLServer
                             if (cantidad != 0) 
                                 publicacion.calificacion = sumaCalificacion / cantidad;
                             listaPublicaciones.Add(publicacion);
-
+                            sumaCalificacion = 0;
+                            cantidad = 0;
                             cursor.Close();
                         }
                     }

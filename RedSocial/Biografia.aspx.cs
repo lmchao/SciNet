@@ -56,7 +56,7 @@ public partial class Biografia : System.Web.UI.Page
             Repeater rptComentarios = (Repeater)e.Item.FindControl("rptComentarios");
 
             lblPublicacionId.Value = publicacion.id.ToString();
-            lblNombreUsuario.Text = publicacion.usuarioID.ToString();
+            lblNombreUsuario.Text = publicacion.nombreUsuario;
             lblPubMensaje.Text = publicacion.descripcion;
             if (publicacion.imagen != null)
             {
@@ -84,7 +84,7 @@ public partial class Biografia : System.Web.UI.Page
             Label lblComFecha = (Label)e.Item.FindControl("lblComFecha");
             Label lblComPuntos = (Label)e.Item.FindControl("lblComPuntos");
 
-            lblComNombre.Text = comentario.usuarioID.ToString();
+            lblComNombre.Text = comentario.nombreUsuario;
             lblComTexto.Text = comentario.texto;
             lblComFecha.Text = comentario.fechaActualizacion.ToString();
             lblComPuntos.Text = comentario.calificacion.ToString();

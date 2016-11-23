@@ -13,6 +13,7 @@ namespace RedSocialEntity
             id = 0;
             publicacionID = 0;
             usuarioID = 0;
+            nombreUsuario = "";
             texto = "";
             calificacion = 0;
             fechaActualizacion = DateTime.Now;
@@ -29,6 +30,8 @@ namespace RedSocialEntity
         public int calificacion { get; set; }
 
         public DateTime fechaActualizacion { get; set; }
+
+        public string nombreUsuario { get; set; }
 
         public void ValidarDatos()
         {

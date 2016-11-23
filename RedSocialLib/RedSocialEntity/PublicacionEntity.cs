@@ -10,6 +10,7 @@ namespace RedSocialEntity
         public PublicacionEntity() {
             id = 0;
             usuarioID = 0;
+            nombreUsuario = "";
             grupoID = 0;
             descripcion = "";
             actualizacion = DateTime.MinValue;
@@ -25,7 +26,7 @@ namespace RedSocialEntity
         public DateTime actualizacion  { get; set; }
         public int calificacion { get; set; }
         public byte[] imagen { get; set; }
-
+        public string nombreUsuario { get; set; }
         public List<ComentarioEntity> listaComentarios { get; set; }
 
         public void ValidarDatos()
