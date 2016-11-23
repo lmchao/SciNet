@@ -69,52 +69,44 @@ namespace RedSocialDataSQLServer
             {
                 string query = @"
 SELECT distinct 
-pub.* , 
-com.* ,       
+
+gu.GrupoID,
+pub.*, com.*,
+pub.PublicacionID, pub.Descripcion, pub.UsuarioID, 
+com.ComentarioID, com.ComentarioTexto ,       
 uc.UsuarioNombre + ' ' + uc.UsuarioApellido usuariocomentario, 
-up.UsuarioNombre + ' ' + up.UsuarioApellido usuariopublicacion, 
-yo.usuarioid   
+up.UsuarioNombre + ' ' + up.UsuarioApellido usuariopublicacion
+--yo.usuarioid   
 FROM Publicacion pub     
 left join Comentario com on com.PublicacionID = pub.PublicacionID 
 left join usuario up on pub.UsuarioID = up.UsuarioID    
-inner join usuario uc on com.usuarioid = uc.usuarioid
+left join usuario uc on com.usuarioid = uc.usuarioid
 left join amigo am on pub.UsuarioID = am.UsuarioID or pub.UsuarioID = am.UsuarioIDAmigo
 left join usuario yo on yo.UsuarioID = am.UsuarioID or yo.UsuarioID = am.UsuarioIDAmigo and pub.UsuarioID <> yo.UsuarioID
-left join GrupoUsuario gu on pub.UsuarioID = gu.UsuarioID      
+left join GrupoUsuario gu on (pub.GrupoID = gu.grupoiD and gu.GrupoID = @grupo_id) 
  
-WHERE yo.UsuarioID = @Parameter_ID 
-or pub.UsuarioID = @Parameter_ID
---or pub.grupoid = @grupo_id
+WHERE (yo.UsuarioID = @usuario_id or @usuario_id is null) and (gu.grupoiD = @grupo_id or @grupo_id is null)
 ORDER BY pub.PublicacionActualizacion DESC , Com.ComentarioFechaActualizacion ASC  ;  
 
 ";
-
-                
+                           
                 
                 List<PublicacionEntity> listaPublicaciones = new List<PublicacionEntity>();
-                string parameterID = "";
-                /*
-                
-                if (filtro.GetType().Name == "GrupoEntity")
-                {
-                    parameterID = ((GrupoEntity)filtro).id.ToString();
-                    query += "g.GrupoID = @Parameter_ID";
-                }
-                */
-                if (filtro.GetType().Name == "UsuarioEntity")
-                {
-                    parameterID = ((UsuarioEntity)filtro).id.ToString();
-                    //query += "yo.UsuarioID = @Parameter_ID";
-                }
-                
-                //query += " ORDER BY p.PublicacionActualizacion DESC";
-                //query += " , C.ComentarioFechaActualizacion ASC";
-                
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
-                        comando.Parameters.AddWithValue("@Parameter_ID", parameterID);
+                        
+                        if (filtro.GetType().Name == "GrupoEntity")
+                        {
+                            comando.Parameters.AddWithValue("@Usuario_ID", DBNull.Value);
+                            comando.Parameters.AddWithValue("@Grupo_ID", ((GrupoEntity)filtro).id.ToString());
+                        }
+                        if (filtro.GetType().Name == "UsuarioEntity")
+                        {
+                            comando.Parameters.AddWithValue("@Usuario_ID", ((UsuarioEntity)filtro).id.ToString());
+                            comando.Parameters.AddWithValue("@Grupo_ID", DBNull.Value);
+                        }
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {
                             int codant = 0;
