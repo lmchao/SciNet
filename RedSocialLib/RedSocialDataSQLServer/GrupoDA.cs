@@ -66,22 +66,25 @@ namespace RedSocialDataSQLServer
         public static List<GrupoEntity> BuscarGrupos(UsuarioEntity usuario, Boolean propios)
         {
             try
-            {
-                string query = "SELECT * FROM Grupo G LEFT JOIN GrupoUsuario GU ON (G.GrupoID = GU.GrupoID) WHERE GU.UsuarioID ";
+            {                
+                string query = @"SELECT * FROM 
+                                Grupo G
+                                WHERE grupoid ";
+
+                if (!propios)
+                {                 
+                    query += " not ";
+                }
+
+                query += "in (select grupoid from GrupoUsuario where usuarioid = @Parameter_ID)";
+
                 string parameterID = "";
                 List<GrupoEntity> grupos = new List<GrupoEntity>();
                 
                 parameterID = ((UsuarioEntity)usuario).id.ToString();
-
-                if (propios) {
-                    query += " = ";
-                } else  {
-                    query += " <> ";
-                }
-
-                query += " @Parameter_ID";                
-
+                
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
