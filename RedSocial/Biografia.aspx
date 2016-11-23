@@ -1,5 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Autenticado.master" AutoEventWireup="true" CodeFile="Biografia.aspx.cs" Inherits="Biografia" %>
 
+<script runat="server">
+
+    protected void btnBuscarGrupo_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
+
 <asp:Content ID="cphCuerpo" ContentPlaceHolderID="Cuerpo" Runat="Server">
     <style>
         #rptPublicaciones {
@@ -20,13 +29,13 @@
         </tr>
         <tr>
             <td  style="background-color:beige">
-                <table>
+                <table style="width:100%;vertical-align:top;">
                     <tr>
                         <td style="width:20%;vertical-align:top;">
                             <table style="text-align:center;vertical-align:top">
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="txtBuscarUsuario" runat="server" Width="100px" />
+                                        <asp:TextBox ID="txtBuscarUsuario" runat="server" Width="120px" />
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Button ID="btnBuscarUsuario" runat="server" CssClass="BotonCabecera" Text="Buscar" OnClick="btnBuscarUsuario_Click" />
                                     </td>
@@ -75,7 +84,7 @@
                                                 <tr>
                                                     <td bgcolor="#CCFFCC">
                                                         <asp:Label runat="server" ID="Label1" 
-                                                            text='<%# Eval("nombre") %>' />
+                                                            text='<%# Eval("nombre") + " " + Eval("apellido") %>' />
                                                     </td>
                                                     <%--<td>
                                                         <asp:Button ID="btnVerContacto" runat="server" CommandName="VerContacto" />
@@ -94,7 +103,7 @@
                             <table style="width:100%;">
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="txtPublicar" runat="server" TextMode="MultiLine" Width="700px" Height="50px"   />
+                                        <asp:TextBox ID="txtPublicar" runat="server" TextMode="MultiLine" Width="650px" Height="50px"   />
                                     </td>
                                 </tr>
                                 <tr>
@@ -237,7 +246,14 @@
                             <table style="width:100%;text-align:center;">
                                 <tr>
                                     <td>
-                                        <input type="button" value="Nuevo Grupo" class="BotonCabecera" onClick="javascript: window.location = 'AltaGrupo.aspx';" />
+                                        <asp:TextBox ID="txtBuscarGrupo" runat="server" Width="120px" />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <asp:Button ID="btnBuscarGrupo" runat="server" CssClass="BotonCabecera" Text="Buscar" OnClick="btnBuscarGrupo_Click1" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="button" value="Nuevo Grupo" class="BotonCabecera" onClick="javascript: window.location = 'AltaGrupo.aspx';" style="width:100px;text-align:center;" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -246,8 +262,8 @@
                                             <HeaderTemplate>
                                               <table>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Description</th>
+                                                    <th>Nombre</th>
+                                                    <th>Descripcion</th>
                                                 </tr>
                                             </HeaderTemplate>
 
@@ -272,9 +288,6 @@
                                 </tr>
                             </table>
                             
-                        </td>
-                        <td style="width:10%;">
-
                         </td>
                     </tr>
                 </table>

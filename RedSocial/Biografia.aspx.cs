@@ -154,4 +154,10 @@ public partial class Biografia : System.Web.UI.Page
 
         Response.Redirect(Request.RawUrl);
     }
+    
+
+    protected void btnBuscarGrupo_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("BuscarGrupo.aspx?id=" + txtBuscarGrupo.Text);
+    }
 }

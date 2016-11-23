@@ -22,7 +22,7 @@
                         <asp:TextBox ID="txtNombre" runat="server" Columns="20" MaxLength="30" placeholder="Nombre" CssClass="CajaTextoCrearGrupo"></asp:TextBox>            
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:TextBox ID="txtDescripcion" runat="server" Columns="20" MaxLength="30" placeholder="Descripcion" CssClass="CajaTextoCrearGrupoDescripcion"></asp:TextBox>            
+                        <asp:TextBox ID="txtDescripcion" runat="server" Columns="20" MaxLength="100" placeholder="Descripcion" CssClass="CajaTextoCrearGrupoDescripcion"></asp:TextBox>            
                     </asp:TableCell>
                 </asp:TableRow>                
                 <asp:TableRow>
