@@ -242,7 +242,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Repeater ID="rptGrupos" runat="server" >          
+                                        <asp:Repeater ID="rptGrupos" runat="server" OnItemCommand="rptGrupos_ItemCommand" >          
                                             <HeaderTemplate>
                                               <table>
                                                 <tr>
@@ -260,6 +260,9 @@
                                                 <td bgcolor="#CCFFCC">
                                                     <asp:Label runat="server" ID="Label2" 
                                                         text='<%# Eval("descripcion") %>' />
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="btnVerGrupo" runat="server" Text="Ver" CssClass="BotonCabecera" CommandName="VerGrupo" CommandArgument='<%# Eval("id") %>' />
                                                 </td>
                                             </tr>
                                             </ItemTemplate>

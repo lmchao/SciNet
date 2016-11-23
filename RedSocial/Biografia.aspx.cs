@@ -16,25 +16,30 @@ public partial class Biografia : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            List<PublicacionEntity> listPublicaciones = null;
+
+            if (SessionHelper.Grupo != null)
+            {
+                listPublicaciones = PublicacionBO.Listar(SessionHelper.Grupo);
+            }
+
             if (SessionHelper.UsuarioAutenticado != null)
             {
-                List<PublicacionEntity> listPublicaciones = PublicacionBO.Listar(SessionHelper.UsuarioAutenticado);
-
-
-                rptPublicaciones.DataSource = listPublicaciones;
-                rptPublicaciones.DataBind();
-
-                rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado, true);
-                rptGrupos.DataBind();
-
-                rptSolicitudes.DataSource = SolicitudBO.Listar(SessionHelper.UsuarioAutenticado);
-                rptSolicitudes.DataBind();
-
-                rptContactos.DataSource = UsuarioBO.BuscarUsuariosAmigos(SessionHelper.UsuarioAutenticado);
-                rptContactos.DataBind();
-
-                //rptPublicaciones.DataSource =
+                listPublicaciones = PublicacionBO.Listar(SessionHelper.UsuarioAutenticado);
             }
+
+            rptPublicaciones.DataSource = listPublicaciones;
+            rptPublicaciones.DataBind();
+
+            rptGrupos.DataSource = GrupoBO.Listar(SessionHelper.UsuarioAutenticado, true);
+            rptGrupos.DataBind();
+
+            rptSolicitudes.DataSource = SolicitudBO.Listar(SessionHelper.UsuarioAutenticado);
+            rptSolicitudes.DataBind();
+
+            rptContactos.DataSource = UsuarioBO.BuscarUsuariosAmigos(SessionHelper.UsuarioAutenticado);
+            rptContactos.DataBind();
+
         }
     }
 
@@ -153,5 +158,21 @@ public partial class Biografia : System.Web.UI.Page
         }
 
         Response.Redirect(Request.RawUrl);
+    }
+
+    protected void rptGrupos_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "VerGrupo")
+        {
+            List<GrupoEntity> lista = GrupoBO.Listar(SessionHelper.UsuarioAutenticado, true);
+            foreach (GrupoEntity grp in lista)
+            {
+                if (grp.id == Convert.ToInt32(e.CommandArgument))
+                {
+                    SessionHelper.AlmacenarGrupo(grp);
+                    break;
+                }            
+            }
+        }
     }
 }

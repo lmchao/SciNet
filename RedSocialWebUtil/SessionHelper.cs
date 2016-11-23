@@ -30,5 +30,23 @@ namespace RedSocialWebUtil
                 return (UsuarioEntity)HttpContext.Current.Session["UsuarioAutenticado"];
             }
         }
+
+        public static void AlmacenarGrupo(GrupoEntity grupo)
+        {
+            HttpContext.Current.Session.Add("Grupo", grupo);
+        }
+
+        public static void LimpiarGrupo()
+        {
+            HttpContext.Current.Session.Remove("Grupo");
+        }
+
+        public static GrupoEntity Grupo
+        {
+            get
+            {
+                return (GrupoEntity)HttpContext.Current.Session["Grupo"];
+            }
+        }
     }
 }
